@@ -1,0 +1,621 @@
+"'Detalle de actividades ejecutadas Civil' As screen":
+    OnVisible: =
+
+    Rectangle1_37 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_38 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =1018
+        ZIndex: =2
+
+    Label3_16 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1051
+        ZIndex: =3
+
+    Label1_74 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =481
+        Y: =975
+        ZIndex: =4
+
+    Icon3_14 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =76
+        X: =505
+        Y: =899
+        ZIndex: =5
+
+    FormViewer1_2 As formViewer:
+        DataSource: =BD_Seg_Ejec_Civil_Massy
+        Height: =702
+        Item: =galListaSeguimientosCiviles_3.Selected
+        NumberOfColumns: =1
+        Width: =640
+        Y: =141
+        ZIndex: =6
+
+        RendimientoEjec_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RendimientoEjec"
+            Default: =ThisItem.RendimientoEjec
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,RendimientoEjec)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey95 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="RENDIMIENTO EJECUTADO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue95 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey95.Y + DataCardKey95.Height + 5
+                ZIndex: =2
+
+        Cumplimiento_DataCard1 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Cumplimiento"
+            Default: =ThisItem.Cumplimiento
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,Cumplimiento)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue96.Selected
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey96 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="CUMPLIMIENTO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue96 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =34
+                Items: =Choices([@BD_Seg_Ejec_Civil_Massy].Cumplimiento)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(BD_Seg_Ejec_Civil_Massy.Cumplimiento,DataCardValue96.SearchText)
+                SelectMultiple: =false
+                Size: =14
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey96.Y + DataCardKey96.Height + 5
+                ZIndex: =2
+
+            StarVisible52 As label:
+                Align: =Align.Center
+                Height: =DataCardKey96.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey96.Y
+                ZIndex: =4
+
+        FechaActividad_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="FechaActividad"
+            Default: =ThisItem.FechaActividad
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,FechaActividad)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+            DataCardKey89 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="FECHA:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue89 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey89.Y + DataCardKey89.Height + 5
+                ZIndex: =2
+
+        PuestoTrabajo_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PuestoTrabajo"
+            Default: =ThisItem.PuestoTrabajo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,PuestoTrabajo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey90 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="PUESTO DE TRABAJO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue90 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey90.Y + DataCardKey90.Height + 5
+                ZIndex: =2
+
+        OrdenActividad_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="OrdenActividad"
+            Default: =ThisItem.OrdenActividad
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,OrdenActividad)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =7
+
+            DataCardKey88 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="ACTIVIDAD - ORDEN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue88 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey88.Y + DataCardKey88.Height + 5
+                ZIndex: =2
+
+        Observaciones_DataCard7 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Observaciones"
+            Default: =ThisItem.Observaciones
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,Observaciones)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =207
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =7
+
+            DataCardKey94 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="OBSERVACIONES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue94 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =127
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey94.Y + DataCardKey94.Height + 5
+                ZIndex: =2
+
+    Icon2_4 As icon.ZoomIn:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Trash
+        OnSelect: =Set(mensajeEliminarSeguimientosCivilesEjecutados, true)
+        Width: =76
+        X: =44
+        Y: =898
+        ZIndex: =7
+
+    Icon3_13 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        DisplayMode: =If(DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =76
+        Icon: =Icon.Edit
+        OnSelect: =Set(avisoModificarTareaDetalleEjec, true)
+        Width: =76
+        X: =282
+        Y: =898
+        ZIndex: =8
+
+    Label1_70 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Eliminar"
+        Width: =125
+        X: =19
+        Y: =974
+        ZIndex: =9
+
+    Label1_73 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Editar"
+        Width: =125
+        X: =257
+        Y: =974
+        ZIndex: =10
+
+    Label1_115 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (EJECUTADO)"
+        Width: =532
+        X: =54
+        Y: =29
+        ZIndex: =11
+
+    grupMensajeEliminarSeguimientosCiviles_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        fondoAviso_15 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =640
+            ZIndex: =12
+
+        Rectangle4_15 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =13
+
+        Rectangle5_15 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =14
+
+        Label4_15 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            OnSelect: =
+            Size: =21
+            Text: ="¡ELIMINAR REGISTRO!"
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =15
+
+        Label7_19 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            OnSelect: =
+            Size: =21
+            Text: ="¿Quiere eliminar este registro?"
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =16
+
+        Button3_21 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Remove(BD_Seg_Ejec_Civil_Massy, galListaSeguimientosCiviles_3.Selected); Set(mensajeEliminarSeguimientosCivilesEjecutados, false); Back(); Notify("¡Registro eliminado correctamente!", NotificationType.Success, 2000)
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =17
+
+        Button3_22 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeEliminarSeguimientosCivilesEjecutados, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeEliminarSeguimientosCivilesEjecutados
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =18
+
+    Group2_1 As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =38
+
+        fondoAviso_21 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =640
+            ZIndex: =19
+
+        Rectangle4_21 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =456
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =561
+            X: =40
+            Y: =370
+            ZIndex: =20
+
+        Rectangle5_21 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =560
+            X: =39
+            Y: =370
+            ZIndex: =21
+
+        Label4_21 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="MODIFICAR DATOS DE LA ACTIVIDAD"
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =355
+            X: =137
+            Y: =387
+            ZIndex: =22
+
+        Button3_34 As button:
+            Fill: =RGBA(221, 79, 14, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(avisoModificarTareaDetalleEjec, false)
+            Size: =16
+            Text: ="CANCELAR"
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =142
+            X: =360
+            Y: =725
+            ZIndex: =23
+
+        TextInput1_11 As text:
+            Default: =galListaSeguimientosCiviles_3.Selected.OrdenActividad
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Lato
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =519
+            X: =56
+            Y: =523
+            ZIndex: =24
+
+        Button3_33 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =Patch(
+                    BD_Seg_Ejec_Civil_Massy, LookUp(BD_Seg_Ejec_Civil_Massy, ID = galListaSeguimientosCiviles_3.Selected.ID),
+                    {
+                        FechaActividad: DateValue(DataCardValue89.Text),
+                        PuestoTrabajo: DataCardValue90.Text,
+                        OrdenActividad: DataCardValue88.Text,
+                        RendimientoEjec: Value(TextInput1_12.Text),
+                        Cumplimiento: DataCardValue96.Selected,
+                        Observaciones: DataCardValue94.Text
+                }
+                ); Set(avisoModificarTareaDetalleEjec, false); Navigate('Ver rendimientos ejecutados Civil', ScreenTransition.CoverRight); Notify("¡Registro modificado con éxito!", NotificationType.Success, 2000)
+            Size: =16
+            Text: ="MODIFICAR"
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =142
+            X: =121
+            Y: =725
+            ZIndex: =25
+
+        Label8_17 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="ACTIVIDAD - ORDEN:"
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =200
+            X: =60
+            Y: =497
+            ZIndex: =26
+
+        TextInput1_12 As text:
+            Default: =galListaSeguimientosCiviles_3.Selected.RendimientoEjec
+            Font: =Font.Lato
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =246
+            X: =60
+            Y: =637
+            ZIndex: =27
+
+        Label8_18 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="PORCENTAJE DE AVANCE:"
+            Visible: =avisoModificarTareaDetalleEjec
+            Width: =287
+            X: =60
+            Y: =601
+            ZIndex: =28
+

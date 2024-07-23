@@ -1,0 +1,156 @@
+"'Puesto y orden de actividad planeada ejecutada' As screen":
+
+    Rectangle1_18 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =2
+
+    Rectangle1_19 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =5
+
+    Label1_25 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: |-
+            ="SELECCIÓN DE ACTIVIDADES
+            POR PUESTO DE TRABAJO"
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =6
+
+    btnGuardar_3 As button:
+        Color: =Color.White
+        Fill: =RGBA(3, 94, 143, 1)
+        Height: =78
+        OnSelect: = If(lsPuestoPlaneado.SelectedText.Value = "-- Seleccionar --" Or IsBlank(lsOrdenDescripcionPlaneado.SelectedText.Value), Notify("Debe seleccionar un puesto de trabajo y una orden",NotificationType.Warning, 2000), NewForm(EditForm1); Navigate('Registro de actividad planeada ejecutada', ScreenTransition.Cover))
+        Size: =24
+        Text: ="CONTINUAR"
+        Width: =213
+        X: =213
+        Y: =816
+        ZIndex: =7
+
+    dtFechaPlaneada As datepicker:
+        Font: =Font.Lato
+        Format: =Text(dtFechaPlaneada.SelectedDate, "dd/mm/yyyy") 
+        Height: =70
+        Size: =21
+        Width: =575
+        X: =38
+        Y: =226
+        ZIndex: =8
+
+    lsPuestoPlaneado As dropdown:
+        Font: =Font.Lato
+        Height: =70
+        Items: =["-- Seleccionar --", "Aire acondicionado", "Civil", "Mecánica", "Electromecánica Grúas/Ascensor", "Electromecánica RCI","Compresores", "Eléctricos", "Generadores", "Equipos de soldar", "Equipos de Taller Central y Casing"]
+        Size: =21
+        Width: =575
+        X: =38
+        Y: =386
+        ZIndex: =9
+
+    lsOrdenDescripcionPlaneado As dropdown:
+        Font: =Font.Lato
+        Height: =70
+        Items: =Filter(BD_Planeacion_Mtto_Massy, Fecha = Text(dtFechaPlaneada.SelectedDate, "dd/mm/yyyy") And Puesto_Trabajo = lsPuestoPlaneado.SelectedText.Value)
+        Size: =21
+        Width: =575
+        X: =38
+        Y: =553
+        ZIndex: =10
+
+    Icon1_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover); Reset(dtFechaPlaneada); Reset(lsPuestoPlaneado); Reset(lsOrdenDescripcionPlaneado)
+        Width: =76
+        X: =520
+        Y: =797
+        ZIndex: =11
+
+    Label1_10 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =21
+        Text: ="Atrás"
+        Width: =125
+        X: =495
+        Y: =873
+        ZIndex: =12
+
+    Label1_26 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =19
+        Text: |-
+            ="FECHA:"
+        Width: =338
+        X: =38
+        Y: =164
+        ZIndex: =13
+
+    Label1_27 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =19
+        Text: |-
+            ="PUESTO DE TRABAJO:"
+        Width: =338
+        X: =38
+        Y: =324
+        ZIndex: =14
+
+    Label1_28 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =19
+        Text: |-
+            ="ORDEN - ACTIVIDAD:"
+        Width: =338
+        X: =38
+        Y: =491
+        ZIndex: =15
+
+    Label3_5 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: ="2023 - Servicios a la operación (CMSA)"
+        Width: =560
+        X: =36
+        Y: =1030
+        ZIndex: =16
+

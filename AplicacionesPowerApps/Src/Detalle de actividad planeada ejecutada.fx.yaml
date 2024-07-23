@@ -1,0 +1,927 @@
+"'Detalle de actividad planeada ejecutada' As screen":
+
+    Rectangle1_14 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_15 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_22 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: |-
+            ="DETALLE DE ACTIVIDAD
+            PLANEADA (EJECUTADA)
+            "
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =5
+
+    detalleActividadPlaneada As formViewer:
+        DataSource: =[@BD_Ejecucion_Mtto_Massy]
+        Height: =682
+        Item: =galListaPlaneado.Selected
+        Width: =640
+        Y: =150
+        ZIndex: =6
+
+        Hora_Inicio_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Inicio"
+            Default: =ThisItem.Hora_Inicio
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Inicio)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey26 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA INICIO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =17
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue25 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                ZIndex: =2
+
+        Hora_Fin_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Fin"
+            Default: =ThisItem.Hora_Fin
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Fin)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey27 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA FIN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =17
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue26 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                ZIndex: =2
+
+        Equipo_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Equipo"
+            Default: =ThisItem.Equipo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Equipo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey16 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="EQUIPO:
+                    "
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =20
+                ZIndex: =1
+
+            DataCardValue16 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                ZIndex: =2
+
+        Ubicacion_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ubicacion"
+            Default: =ThisItem.Ubicacion
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Ubicacion)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey19 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="UBICACIÓN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =20
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue19 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =50
+                ZIndex: =2
+
+        Subsecuente_DataCard6 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Subsecuente"
+            Default: =ThisItem.Subsecuente
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Subsecuente)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue62.Selected
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey62 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="SE REQUIERE SUBSECUENTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =20
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue62 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =50
+                Items: =Choices([@BD_Ejecucion_Mtto_Massy].Subsecuente)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(BD_Ejecucion_Mtto_Massy.Subsecuente,DataCardValue62.SearchText)
+                SelectMultiple: =false
+                Size: =21
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =45
+                ZIndex: =2
+
+            ErrorMessage43 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue62.Y + DataCardValue62.Height
+                ZIndex: =3
+
+            StarVisible43 As label:
+                Align: =Align.Center
+                Height: =DataCardKey62.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey62.Y
+                ZIndex: =4
+
+        Nombre_Ejecutante_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Nombre_Ejecutante"
+            Default: =ThisItem.Nombre_Ejecutante
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Nombre_Ejecutante)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =97
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey58 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NOMBRE DEL EJECUTANTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =20
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue58 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =25
+                Y: =50
+                ZIndex: =2
+
+        "'Datos adjuntos_DataCard4' As typedDataCard.attachmentsViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.'Datos adjuntos'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,'Datos adjuntos')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue47.Attachments
+            Width: =640
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey47 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="IMÁGENES ADJUNTAS:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =21
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue47 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =520
+                IsInDataCard: =true
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =21
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey47.Y + DataCardKey47.Height + 5
+                ZIndex: =2
+
+            ErrorMessage22 As label:
+                AutoHeight: =true
+                Height: =10
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue47.Y + DataCardValue47.Height
+                ZIndex: =3
+
+            StarVisible22 As label:
+                Align: =Align.Center
+                Height: =DataCardKey47.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey47.Y
+                ZIndex: =4
+
+        Fecha_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Fecha"
+            Default: =ThisItem.Fecha
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Fecha)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+            DataCardKey2 As label:
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =44
+                Size: =19
+                Text: |-
+                    ="FECHA:"
+                Width: =589
+                Wrap: =false
+                X: =19
+                ZIndex: =1
+
+            DataCardValue2 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =44
+                ZIndex: =2
+
+        Puesto_De_Trabajo_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Puesto_De_Trabajo"
+            Default: =ThisItem.Puesto_De_Trabajo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Puesto_De_Trabajo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="PUESTO DE TRABAJO:
+                    "
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =19
+                Y: =3
+                ZIndex: =1
+
+            DataCardValue3 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =43
+                ZIndex: =2
+
+        Orden_Descripcion_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Orden_x002d_Descripcion"
+            Default: =ThisItem.Orden_Descripcion
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Orden_Descripcion)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =7
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="ORDEN - DESCRIPCIÓN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =19
+                ZIndex: =1
+
+            DataCardValue4 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =18
+                Y: =40
+                ZIndex: =2
+
+        No_Trabajadores_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="No_Trabajadores"
+            Default: =ThisItem.No_Trabajadores
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,No_Trabajadores)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =96
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =7
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NÚMERO DE TRABAJADORES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =17
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =50
+                ZIndex: =2
+
+        Observaciones_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Observaciones"
+            Default: =ThisItem.Observaciones
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Observaciones)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =204
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =7
+
+            DataCardKey6 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="OBSERVACIONES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =17
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =50
+                ZIndex: =2
+
+        Hallazgos_Pendientes_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hallazgos_x002d_Pendientes"
+            Default: =ThisItem.Hallazgos_Pendientes
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hallazgos_Pendientes)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =204
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =7
+
+            DataCardKey7 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HALLAGOS O PENDIENTES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =17
+                Y: =4
+                ZIndex: =1
+
+            DataCardValue7 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =20
+                Y: =44
+                ZIndex: =2
+
+    Icon2 As icon.ZoomIn:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Trash
+        OnSelect: =Set(mensajeEliminar, true)
+        Width: =76
+        X: =42
+        Y: =857
+        ZIndex: =7
+
+    Icon3 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        DisplayMode: =If(DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =76
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(EditForm1); ClearCollect(itemsAdjuntos, galListaPlaneado.Selected.'Datos adjuntos') ; Navigate('Edición de actividad planeada ejecutada', ScreenTransition.Cover)
+        Width: =76
+        X: =198
+        Y: =857
+        ZIndex: =8
+
+    Label1_8 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Eliminar"
+        Width: =125
+        X: =17
+        Y: =933
+        ZIndex: =9
+
+    Label1_24 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Editar"
+        Width: =125
+        X: =173
+        Y: =933
+        ZIndex: =10
+
+    Label1_29 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =481
+        Y: =933
+        ZIndex: =11
+
+    Icon3_1 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.CoverRight)
+        Width: =76
+        X: =505
+        Y: =857
+        ZIndex: =12
+
+    Label3_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: ="2023 - Servicios a la operación (CMSA)"
+        Width: =483
+        X: =13
+        Y: =1032
+        ZIndex: =24
+
+    Icon7_2 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Send
+        OnSelect: =Set(mensajeConfirmarReporte, true)
+        Width: =76
+        X: =351
+        Y: =857
+        ZIndex: =25
+
+    Label1_39 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =64
+        OnSelect: =
+        Size: =18
+        Text: ="Enviar reporte"
+        Width: =125
+        X: =327
+        Y: =923
+        ZIndex: =26
+
+    grupMensajeEliminarPlaneadas As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =34
+
+        fondoAviso_9 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =mensajeEliminar
+            Width: =640
+            ZIndex: =27
+
+        Rectangle4_9 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            Visible: =mensajeEliminar
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =28
+
+        Rectangle5_9 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =mensajeEliminar
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =29
+
+        Label4_9 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="¡ELIMINAR REGISTRO!"
+            Visible: =mensajeEliminar
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =30
+
+        Label7_13 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            Size: =21
+            Text: ="¿Quiere eliminar este registro?"
+            Visible: =mensajeEliminar
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =31
+
+        Button3_9 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Remove([@BD_Ejecucion_Mtto_Massy], galListaPlaneado.Selected); If (IsEmpty(Errors([@BD_Ejecucion_Mtto_Massy], galListaPlaneado.Selected)), Back()); Set(mensajeEliminar, false); Notify("¡Registro eliminado correctamente!", NotificationType.Success, 2000)
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeEliminar
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =32
+
+        Button3_10 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeEliminar, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeEliminar
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =33
+
+    grupMensajeConfirmarReporte As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =41
+
+        fondoAviso_11 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =mensajeConfirmarReporte
+            Width: =640
+            ZIndex: =34
+
+        Rectangle4_11 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            Visible: =mensajeConfirmarReporte
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =35
+
+        Rectangle5_11 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =mensajeConfirmarReporte
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =36
+
+        Label4_11 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="CONFIRMAR ENVÍO DE REPORTE"
+            Visible: =mensajeConfirmarReporte
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =37
+
+        Label7_15 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            Size: =21
+            Text: ="¿Quiere enviar el reporte?"
+            Visible: =mensajeConfirmarReporte
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =38
+
+        Button3_14 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =GenerarPdfImagenes.Run(galListaPlaneado.Selected.ID); Set(mensajeConfirmarReporte, false); Notify("¡Reporte enviado con éxito!", NotificationType.Success, 2000)
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeConfirmarReporte
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =39
+
+        Button3_13 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeConfirmarReporte, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeConfirmarReporte
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =40
+

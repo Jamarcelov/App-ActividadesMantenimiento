@@ -1,0 +1,136 @@
+"'Menú registro de rendimientos Civil' As screen":
+
+    Image3 As image:
+        Height: =131
+        Image: =rendEst
+        OnSelect: =Navigate('Ver rendimientos estimados Civil', ScreenTransition.Cover)
+        Width: =131
+        X: =40
+        Y: =441
+        ZIndex: =1
+
+    Image2 As image:
+        Height: =131
+        Image: =rendProg
+        OnSelect: =Navigate('Ver rendimientos programados Civil', ScreenTransition.Cover)
+        Width: =131
+        X: =34
+        Y: =247
+        ZIndex: =2
+
+    Rectangle1_32 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =135
+        Width: =640
+        ZIndex: =3
+
+    Rectangle1_34 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label3_14 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =7
+
+    Icon7 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =70
+        Icon: =Icon.Home
+        OnSelect: =Navigate('Index seguimiento Civil', ScreenTransition.CoverRight)
+        Width: =70
+        X: =512
+        Y: =866
+        ZIndex: =9
+
+    Label1_15 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =16
+        Text: ="Ir a Inicio"
+        Width: =151
+        X: =472
+        Y: =936
+        ZIndex: =10
+
+    Label1_93 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =Navigate('Ver rendimientos programados Civil', ScreenTransition.Cover)
+        Size: =14
+        Text: ="REGISTRO DEL RENDIMIENTO PROGRAMADO"
+        Width: =427
+        X: =167
+        Y: =286
+        ZIndex: =11
+
+    Label1_95 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =Navigate('Ver rendimientos estimados Civil', ScreenTransition.Cover)
+        Size: =14
+        Text: ="REGISTRO DEL RENDIMIENTO ESTIMADO"
+        Width: =427
+        X: =169
+        Y: =481
+        ZIndex: =12
+
+    Label1_96 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =Navigate('Ver rendimientos ejecutados Civil', ScreenTransition.Cover)
+        Size: =14
+        Text: ="REGISTRO DEL RENDIMIENTO EJECUTADO (REAL)"
+        Width: =427
+        X: =171
+        Y: =683
+        ZIndex: =13
+
+    Image6 As image:
+        Height: =122
+        Image: =rendEject
+        OnSelect: =Navigate('Ver rendimientos ejecutados Civil', ScreenTransition.Cover)
+        Width: =122
+        X: =38
+        Y: =648
+        ZIndex: =14
+
+    Label1_97 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (CMSA - MASSY)"
+        Width: =532
+        X: =54
+        Y: =29
+        ZIndex: =15
+

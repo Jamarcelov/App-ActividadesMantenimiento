@@ -1,0 +1,199 @@
+Index As screen:
+
+    Rectangle1_6 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    "galLoginUsuario As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
+        Height: =99
+        Items: =LookUp(BD_Login_Massy, Usuario = txtUsuario.Text)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =388
+        X: =159
+        Y: =144
+        ZIndex: =1
+
+        Title3 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            Italic: =true
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.NombreUsuario
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+    Rectangle1_7 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_18 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES DE MANTENIMIENTO (CMSA - MASSY)"
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =5
+
+    Label1_19 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover)
+        Size: =18
+        Text: ="REGISTRO DE ACTIVIDADES PLANEADAS"
+        Width: =338
+        X: =147
+        Y: =449
+        ZIndex: =8
+
+    Label1_20 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        OnSelect: =Navigate('Ver actividades de emergencia ejecutadas', ScreenTransition.Cover)
+        Size: =18
+        Text: ="REGISTRO DE ACTIVIDADES DE EMERGENCIA"
+        Width: =378
+        X: =127
+        Y: =706
+        ZIndex: =9
+
+    Image4 As image:
+        Image: =logoEmergencias
+        OnSelect: =Navigate('Ver actividades de emergencia ejecutadas', ScreenTransition.Cover)
+        X: =266
+        Y: =597
+        ZIndex: =11
+
+    Image5 As image:
+        Image: =logoPlaneado
+        OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover)
+        X: =266
+        Y: =335
+        ZIndex: =12
+
+    Label3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =13
+
+    Label2 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =46
+        Italic: =true
+        Size: =20
+        Text: ="Bienvenido(a),"
+        Width: =170
+        X: =19
+        Y: =139
+        ZIndex: =14
+
+    Icon7_3 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =65
+        Icon: =Icon.Leave
+        OnSelect: =Navigate(Login, ScreenTransition.Cover); Reset(txtUsuario); Reset(txtClave)
+        Width: =65
+        X: =517
+        Y: =895
+        ZIndex: =15
+
+    Label1_16 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =16
+        Text: ="Cerrar sesión"
+        Width: =137
+        X: =481
+        Y: =953
+        ZIndex: =16
+
+    Label1_75 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =16
+        Text: ="Cámara"
+        Width: =137
+        X: =5
+        Y: =953
+        ZIndex: =18
+
+    Icon8 As icon.ShoppingCart:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =65
+        Icon: =Icon.Camera
+        OnSelect: =Clear(Fotos); NewForm(Form1); Navigate(Cámara, ScreenTransition.Cover)
+        Width: =65
+        X: =41
+        Y: =895
+        ZIndex: =20
+
+    Label1_79 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =16
+        Text: ="Galería"
+        Width: =137
+        X: =251
+        Y: =953
+        ZIndex: =21
+
+    Image12 As image:
+        Height: =109
+        Image: ='galeriFotos.jpg'
+        OnSelect: =Navigate('Historial de fotos', ScreenTransition.Cover)
+        Width: =70
+        X: =285
+        Y: =873
+        ZIndex: =22
+

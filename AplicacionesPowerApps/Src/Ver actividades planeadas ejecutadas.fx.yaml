@@ -1,0 +1,252 @@
+"'Ver actividades planeadas ejecutadas' As screen":
+
+    Rectangle1_10 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =135
+        Width: =640
+        ZIndex: =1
+
+    "galListaPlaneado As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
+        Height: =613
+        Items: |-
+            =SortByColumns(
+            If(IsBlank(DatePicker1.SelectedDate), Filter([@BD_Ejecucion_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario), Filter([@BD_Ejecucion_Mtto_Massy], Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario)),"Fecha",SortOrder.Descending)
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate('Detalle de actividad planeada ejecutada', ScreenTransition.Cover)
+        TemplatePadding: =0
+        TemplateSize: =188
+        Y: =218
+        ZIndex: =1
+
+        Title7_1 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Puesto_De_Trabajo
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle6_1 As label:
+            Font: =Font.Lato
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Fecha
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =64
+            ZIndex: =2
+
+        Body3_1 As label:
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Lighter
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Orden_Descripcion
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =110
+            ZIndex: =3
+
+        NextArrow7_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator6_1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+    Rectangle1_11 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    lbTitulo_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        Size: =18
+        Text: |-
+            ="LISTADO DE ACTIVIDADES 
+            PLANEADAS  (EJECUTADAS)
+            "
+        Width: =510
+        X: =61
+        Y: =40
+        ZIndex: =5
+
+    iconBuscar_1 As icon.Search:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =67
+        Icon: =Icon.Search
+        PaddingBottom: =14
+        PaddingLeft: =14
+        PaddingRight: =14
+        PaddingTop: =14
+        Width: =68
+        Y: =136
+        ZIndex: =7
+
+    iconAgregar_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Add
+        OnSelect: =Navigate('Puesto y orden de actividad planeada ejecutada', ScreenTransition.Cover)
+        Width: =76
+        X: =35
+        Y: =860
+        ZIndex: =8
+
+    Icon4_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Reload
+        OnSelect: =Refresh([@BD_Ejecucion_Mtto_Massy])
+        Width: =76
+        X: =187
+        Y: =860
+        ZIndex: =9
+
+    Icon5_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Sync
+        OnSelect: =Reset(DatePicker1)
+        Width: =76
+        X: =355
+        Y: =860
+        ZIndex: =10
+
+    Icon6_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Index, ScreenTransition.CoverRight); Reset(DatePicker1)
+        Width: =76
+        X: =510
+        Y: =860
+        ZIndex: =11
+
+    Label1_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Agregar"
+        Width: =125
+        X: =10
+        Y: =936
+        ZIndex: =12
+
+    Label1_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Refrescar"
+        Width: =141
+        X: =154
+        Y: =936
+        ZIndex: =13
+
+    Label1_6 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =Reset(DatePicker1)
+        Size: =18
+        Text: ="Ver todo"
+        Width: =125
+        X: =330
+        Y: =936
+        ZIndex: =14
+
+    Label1_7 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Ir a inicio"
+        Width: =125
+        X: =486
+        Y: =936
+        ZIndex: =15
+
+    Label3_1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =16
+
+    DatePicker1 As datepicker:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        DefaultDate: =
+        Font: =Font.Lato
+        Height: =67
+        InputTextPlaceholder: ="Buscar por fecha"
+        Italic: =true
+        Size: =21
+        Width: =575
+        X: =65
+        Y: =136
+        ZIndex: =17
+

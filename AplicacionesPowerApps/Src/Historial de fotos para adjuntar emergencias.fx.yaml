@@ -1,0 +1,245 @@
+"'Historial de fotos para adjuntar emergencias' As screen":
+
+    Rectangle1_58 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    "Gallery3_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
+        DelayItemLoading: =true
+        Height: =629
+        Items: =If(IsBlank(DatePicker3_2.SelectedDate), Filter(Prueba_Galeria_Fotos, Usuario = galLoginUsuario.Selected.NombreUsuario), Filter(Prueba_Galeria_Fotos, Usuario = galLoginUsuario.Selected.NombreUsuario And Fecha = DatePicker3_2.SelectedDate))
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =104
+        Width: =621
+        X: =9
+        Y: =218
+        ZIndex: =1
+
+        Image15_2 As image:
+            Height: =72
+            Image: =First(ThisItem.'Datos adjuntos').Value
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title6_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(71, 69, 64, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =14
+            Text: =ThisItem.'Id. de activo de cumplimiento normativo'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 173
+            X: =103
+            Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle5.Size * 1.8)) / 2
+            ZIndex: =2
+
+        Subtitle5_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(71, 69, 64, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            Font: =Font.Lato
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =18
+            Text: =ThisItem.Fecha
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title6_2.Width
+            X: =Title6_2.X
+            Y: =35
+            ZIndex: =3
+
+        NextArrow3_2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledColor: =RGBA(119, 119, 119, 1)
+            Height: =75
+            Icon: =Icon.View
+            OnSelect: =ClearCollect(Fotos, ThisItem.'Datos adjuntos'); Navigate('Galería para adjuntar emergencias', ScreenTransition.Cover); Reset(DatePicker3_2)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =75
+            X: =380
+            ZIndex: =4
+
+        Separator3_2 As rectangle:
+            BorderColor: =RGBA(3, 94, 143, 1)
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =2
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Icon13_2 As icon.AddLibrary:
+            Color: =RGBA(184, 0, 0, 1)
+            Height: =50
+            Icon: =Icon.Trash
+            OnSelect: =Remove(Prueba_Galeria_Fotos, Gallery3_2.Selected)
+            Width: =50
+            X: =551
+            Y: =10
+            ZIndex: =6
+
+        Label1_127 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =29
+            OnSelect: =
+            Size: =14
+            Text: ="Ver fotos"
+            Width: =93
+            X: =371
+            Y: =59
+            ZIndex: =7
+
+        Label1_128 As label:
+            Align: =Align.Center
+            Color: =RGBA(184, 0, 0, 1)
+            Font: =Font.Lato
+            Height: =29
+            OnSelect: =
+            Size: =14
+            Text: ="Eliminar"
+            Width: =93
+            X: =528
+            Y: =59
+            ZIndex: =8
+
+    Rectangle1_59 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_126 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES DE MANTENIMIENTO (CMSA - MASSY)"
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =5
+
+    Label3_27 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =13
+
+    Icon7_13 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =76
+        X: =409
+        Y: =877
+        ZIndex: =15
+
+    Label1_130 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =93
+        X: =400
+        Y: =953
+        ZIndex: =16
+
+    DatePicker3_2 As datepicker:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =If(IsBlank(DatePicker3_2.SelectedDate), RGBA(128, 128, 128, 1), RGBA(0, 0, 0, 1))
+        DefaultDate: =
+        Font: =Font.Lato
+        Height: =70
+        InputTextPlaceholder: ="Buscar por fecha"
+        Italic: =true
+        Size: =22
+        Width: =575
+        X: =65
+        Y: =129
+        ZIndex: =17
+
+    Icon12_2 As icon.Add:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =2
+        Color: =RGBA(102, 102, 102, 1)
+        Height: =70
+        Icon: =Icon.Search
+        X: =1
+        Y: =129
+        ZIndex: =18
+
+    Icon5_7 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Sync
+        OnSelect: =Reset(DatePicker3_2)
+        Width: =76
+        X: =163
+        Y: =877
+        ZIndex: =19
+
+    Label1_129 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Ver todo"
+        Width: =125
+        X: =138
+        Y: =953
+        ZIndex: =20
+

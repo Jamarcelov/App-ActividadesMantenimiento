@@ -1,0 +1,302 @@
+"'Rendimiento de actividades programadas Civil' As screen":
+    OnVisible: =
+
+    Rectangle1_26 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =112
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_27 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =1024
+        ZIndex: =2
+
+    Label3_11 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1043
+        ZIndex: =3
+
+    btnGuardar_6 As button:
+        Color: =Color.White
+        Fill: =RGBA(3, 94, 143, 1)
+        Height: =78
+        OnSelect: |-
+            =If(IsBlank(TextInput2.Text), Notify("¡Por favor, llenar el campo de porcentaje de avance!", NotificationType.Warning, 2000),
+            Patch(
+                BD_Seg_Prog_Civil_Massy,
+                Defaults(BD_Seg_Prog_Civil_Massy),
+                {
+                    FechaActividad: dtFechaPlaneada_1.SelectedDate,
+                    PuestoTrabajo: Label4.Text,
+                    OrdenActividad: Concatenate(
+                        Label6.Text,
+                        " - ",
+                        lsOrden.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BOrden'
+                    ),
+                    RendimientoProg: Value(TextInput2.Text),
+                    NoTrabajadores: Value(Label10.Text),
+                    DuracionTrabajo: Value(Label10_1.Text),
+                    HorasHombre: Value(Label10_2.Text)
+                }
+            ); Reset(dtFechaPlaneada_1); Reset(TextInput2); Navigate('Ver rendimientos programados Civil', ScreenTransition.Cover);Notify("¡Registro guardado con éxito!", NotificationType.Success, 2000))
+        Size: =24
+        Text: ="GUARDAR"
+        Width: =213
+        X: =213
+        Y: =917
+        ZIndex: =4
+
+    dtFechaPlaneada_1 As datepicker:
+        Font: =Font.Lato
+        Format: =Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") 
+        Height: =60
+        Size: =16
+        Width: =575
+        X: =28
+        Y: =285
+        ZIndex: =5
+
+    Label1_40 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="FECHA:"
+        Width: =338
+        X: =28
+        Y: =233
+        ZIndex: =6
+
+    Label1_41 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="ACTIVIDAD:"
+        Width: =338
+        X: =28
+        Y: =480
+        ZIndex: =7
+
+    Label1_42 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="PUESTO DE TRABAJO:"
+        Width: =338
+        X: =28
+        Y: =111
+        ZIndex: =8
+
+    Label4 As label:
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =16
+        Text: ="Civil"
+        Width: =577
+        X: =28
+        Y: =163
+        ZIndex: =9
+
+    Label1_45 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="ORDEN:"
+        Width: =338
+        X: =28
+        Y: =355
+        ZIndex: =10
+
+    lsOrden As dropdown:
+        Font: =Font.Lato
+        Height: =60
+        Items: =Filter(BD_Planeacion_Mtto_Massy, Fecha = Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") And Puesto_Trabajo = Label4.Text)
+        Size: =16
+        Width: =575
+        X: =28
+        Y: =407
+        ZIndex: =11
+
+    Label6 As label:
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =16
+        Text: =LookUp(BD_Planeacion_Mtto_Massy, Fecha = Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") And Puesto_Trabajo = Label4.Text And Orden = lsOrden.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BOrden', Descripcion)
+        Width: =576
+        X: =28
+        Y: =532
+        ZIndex: =12
+
+    Label1_66 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =488
+        Y: =980
+        ZIndex: =13
+
+    Icon3_8 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Ver rendimientos programados Civil', ScreenTransition.CoverRight)
+        Width: =76
+        X: =512
+        Y: =904
+        ZIndex: =14
+
+    Label1_99 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (PROGRAMADO)"
+        Width: =532
+        X: =54
+        Y: =20
+        ZIndex: =17
+
+    Label1_43 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="PORCENTAJE DE AVANCE:"
+        Width: =338
+        X: =28
+        Y: =763
+        ZIndex: =18
+
+    TextInput2 As text:
+        Default: =""
+        Font: =Font.Lato
+        Format: =TextFormat.Number
+        Height: =60
+        Size: =16
+        Width: =577
+        X: =28
+        Y: =815
+        ZIndex: =19
+
+    Label1_44 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =14
+        Text: |-
+            ="NO. TRABAJADORES:"
+        Width: =244
+        X: =28
+        Y: =618
+        ZIndex: =20
+
+    Label1_47 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =14
+        Text: |-
+            ="DURACIÓN DEL TRABAJO:"
+        Width: =244
+        X: =305
+        Y: =619
+        ZIndex: =21
+
+    Label10 As label:
+        Align: =Align.Center
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =14
+        Text: =LookUp(BD_Planeacion_Mtto_Massy, Puesto_Trabajo = Label4.Text And Fecha = Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") And Descripcion = Label6.Text, No_Trabajadores)
+        Width: =52
+        X: =229
+        Y: =612
+        ZIndex: =22
+
+    Label10_1 As label:
+        Align: =Align.Center
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =14
+        Text: =LookUp(BD_Planeacion_Mtto_Massy, Puesto_Trabajo = Label4.Text And Fecha = Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") And Descripcion = Label6.Text, Duracion_Trabajo)
+        Width: =52
+        X: =553
+        Y: =611
+        ZIndex: =23
+
+    Label1_48 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =14
+        Text: |-
+            ="HORAS HOMBRE:"
+        Width: =244
+        X: =28
+        Y: =695
+        ZIndex: =24
+
+    Label10_2 As label:
+        Align: =Align.Center
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =14
+        Text: =LookUp(BD_Planeacion_Mtto_Massy, Puesto_Trabajo = Label4.Text And Fecha = Text(dtFechaPlaneada_1.SelectedDate, "dd/mm/yyyy") And Descripcion = Label6.Text, Horas_Hombre)
+        Width: =52
+        X: =229
+        Y: =691
+        ZIndex: =25
+
