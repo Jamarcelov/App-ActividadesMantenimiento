@@ -1,26 +1,10 @@
 {
   "1aafc107-6c86-4600-94ec-7c19da994eca": {
-    "appActions": [
-      "Run"
-    ],
     "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
+      "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
-          "value": "shared_office365"
-        },
-        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
-          "value": "shared_sharepointonline"
-        },
-        "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
-          "value": "shared_onedriveforbusiness"
-        },
-        "efc11ccb-bf95-45c0-a4a2-ee20414c64aa": {
-          "value": "shared_encodiandocumentmanager"
-        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -30,18 +14,6 @@
         }
       },
       "parameterHintsV2": {
-        "shared_encodiandocumentmanager": {
-          "value": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa"
-        },
-        "shared_office365": {
-          "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
-        },
-        "shared_onedriveforbusiness": {
-          "value": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
-        },
-        "shared_sharepointonline": {
-          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
-        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -79,7 +51,7 @@
     "dependencies": {},
     "dependents": [
       "3497b658-ae46-4811-a5e0-59143e25486b",
-      "8ecbdb26-4897-4b80-8076-fc06178cfd96",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
       "1aafc107-6c86-4600-94ec-7c19da994eca"
     ],
     "id": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
@@ -212,18 +184,34 @@
     "dependencies": {},
     "dependents": [
       "3497b658-ae46-4811-a5e0-59143e25486b",
-      "8ecbdb26-4897-4b80-8076-fc06178cfd96",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
       "1aafc107-6c86-4600-94ec-7c19da994eca"
     ],
     "id": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
   },
-  "8ecbdb26-4897-4b80-8076-fc06178cfd96": {
-    "appActions": [
-      "Run"
-    ],
+  "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
+    "appActions": [],
     "connectionRef": {
       "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
+      "displayName": "OneDrive para la Empresa",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1689/1.0.1689.3722/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3497b658-ae46-4811-a5e0-59143e25486b",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+  },
+  "e06a58fa-1f83-4d67-a4cb-0acb859c277f": {
+    "connectionRef": {
+      "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
@@ -280,27 +268,7 @@
       "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
     },
     "dependents": [],
-    "id": "8ecbdb26-4897-4b80-8076-fc06178cfd96"
-  },
-  "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "OneDrive para la Empresa",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1689/1.0.1689.3722/onedriveforbusiness/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "3497b658-ae46-4811-a5e0-59143e25486b",
-      "8ecbdb26-4897-4b80-8076-fc06178cfd96",
-      "1aafc107-6c86-4600-94ec-7c19da994eca"
-    ],
-    "id": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+    "id": "e06a58fa-1f83-4d67-a4cb-0acb859c277f"
   },
   "e8a388b5-97e6-44d4-b538-7be723c8d3bd": {
     "appActions": [],
@@ -310,7 +278,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-23 00:52:30",
+        "modifiedOn": "2024-07-24 15:56:45",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -337,7 +305,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-23 00:52:30",
+        "modifiedOn": "2024-07-24 15:56:45",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -352,7 +320,7 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "8ecbdb26-4897-4b80-8076-fc06178cfd96",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
       "1aafc107-6c86-4600-94ec-7c19da994eca"
     ],
     "id": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa"
