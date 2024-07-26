@@ -28,7 +28,7 @@
       "GenerarPdfImagenesEmergencias"
     ],
     "dependencies": {
-      "shared_encodiandocumentmanager": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa",
+      "shared_encodiandocumentmanager_1": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0",
       "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
       "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
       "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
@@ -189,6 +189,29 @@
     ],
     "id": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
   },
+  "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0": {
+    "connectionRef": {
+      "displayName": "Encodian",
+      "executionRestrictions": {
+        "apiId": "unknown",
+        "appVer": "3.24072.14",
+        "modifiedOn": "2024-07-26 15:03:12",
+        "policy": "{\"type\":\"unused\"}",
+        "version": 1
+      },
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/12f99dc45dc349c68c7854047277317b"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0"
+  },
   "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
     "appActions": [],
     "connectionRef": {
@@ -221,11 +244,11 @@
         "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
           "value": "shared_sharepointonline"
         },
+        "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0": {
+          "value": "shared_encodiandocumentmanager_1"
+        },
         "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
           "value": "shared_onedriveforbusiness"
-        },
-        "efc11ccb-bf95-45c0-a4a2-ee20414c64aa": {
-          "value": "shared_encodiandocumentmanager"
         },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenes"
@@ -236,8 +259,8 @@
         }
       },
       "parameterHintsV2": {
-        "shared_encodiandocumentmanager": {
-          "value": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa"
+        "shared_encodiandocumentmanager_1": {
+          "value": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0"
         },
         "shared_office365": {
           "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
@@ -262,7 +285,7 @@
       "GenerarPdfImagenes"
     ],
     "dependencies": {
-      "shared_encodiandocumentmanager": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa",
+      "shared_encodiandocumentmanager_1": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0",
       "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
       "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
       "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
@@ -278,7 +301,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-24 15:56:45",
+        "modifiedOn": "2024-07-26 15:03:12",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -296,33 +319,5 @@
       "3497b658-ae46-4811-a5e0-59143e25486b"
     ],
     "id": "e8a388b5-97e6-44d4-b538-7be723c8d3bd"
-  },
-  "efc11ccb-bf95-45c0-a4a2-ee20414c64aa": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Encodian",
-      "executionRestrictions": {
-        "apiId": "unknown",
-        "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-24 15:56:45",
-        "policy": "{\"type\":\"unused\"}",
-        "version": 1
-      },
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
-      "parameterHints": {},
-      "parameterHintsV2": {},
-      "runtimePolicyName": "c61225f5-e8f8-49a2-b6fe-d94ff6ff0a4e",
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/6b52a972a06740d2a890c8b469801a53"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
-      "1aafc107-6c86-4600-94ec-7c19da994eca"
-    ],
-    "id": "efc11ccb-bf95-45c0-a4a2-ee20414c64aa"
   }
 }
