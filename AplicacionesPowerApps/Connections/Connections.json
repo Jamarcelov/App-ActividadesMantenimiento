@@ -28,7 +28,7 @@
       "GenerarPdfImagenesEmergencias"
     ],
     "dependencies": {
-      "shared_encodiandocumentmanager_1": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0",
+      "shared_encodiandocumentmanager": "303a507e-7d2b-4d4a-8c28-157e9c973b2c",
       "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
       "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
       "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
@@ -55,6 +55,29 @@
       "1aafc107-6c86-4600-94ec-7c19da994eca"
     ],
     "id": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
+  },
+  "303a507e-7d2b-4d4a-8c28-157e9c973b2c": {
+    "connectionRef": {
+      "displayName": "Encodian",
+      "executionRestrictions": {
+        "apiId": "unknown",
+        "appVer": "3.24081.10",
+        "modifiedOn": "2024-08-20 08:12:32",
+        "policy": "{\"type\":\"unused\"}",
+        "version": 1
+      },
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/85ccb002ac0b4503a40189d3a3d38201"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "303a507e-7d2b-4d4a-8c28-157e9c973b2c"
   },
   "3497b658-ae46-4811-a5e0-59143e25486b": {
     "appActions": [],
@@ -189,29 +212,6 @@
     ],
     "id": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
   },
-  "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0": {
-    "connectionRef": {
-      "displayName": "Encodian",
-      "executionRestrictions": {
-        "apiId": "unknown",
-        "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-26 15:03:12",
-        "policy": "{\"type\":\"unused\"}",
-        "version": 1
-      },
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/12f99dc45dc349c68c7854047277317b"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
-      "1aafc107-6c86-4600-94ec-7c19da994eca"
-    ],
-    "id": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0"
-  },
   "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
     "appActions": [],
     "connectionRef": {
@@ -241,11 +241,11 @@
         "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
           "value": "shared_office365"
         },
+        "303a507e-7d2b-4d4a-8c28-157e9c973b2c": {
+          "value": "shared_encodiandocumentmanager"
+        },
         "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
           "value": "shared_sharepointonline"
-        },
-        "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0": {
-          "value": "shared_encodiandocumentmanager_1"
         },
         "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
           "value": "shared_onedriveforbusiness"
@@ -259,8 +259,8 @@
         }
       },
       "parameterHintsV2": {
-        "shared_encodiandocumentmanager_1": {
-          "value": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0"
+        "shared_encodiandocumentmanager": {
+          "value": "303a507e-7d2b-4d4a-8c28-157e9c973b2c"
         },
         "shared_office365": {
           "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
@@ -285,7 +285,7 @@
       "GenerarPdfImagenes"
     ],
     "dependencies": {
-      "shared_encodiandocumentmanager_1": "9a77ef93-2d5b-4d04-9cc1-d95de2ec1cc0",
+      "shared_encodiandocumentmanager": "303a507e-7d2b-4d4a-8c28-157e9c973b2c",
       "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
       "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
       "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
@@ -300,8 +300,8 @@
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24072.14",
-        "modifiedOn": "2024-07-26 15:03:12",
+        "appVer": "3.24081.10",
+        "modifiedOn": "2024-08-20 08:12:32",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
