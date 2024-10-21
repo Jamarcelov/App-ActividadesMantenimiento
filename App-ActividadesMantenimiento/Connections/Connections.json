@@ -5,6 +5,18 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3955/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "4ab88ff6-a47b-4496-abce-58c5f86ecc23": {
+          "value": "shared_encodiandocumentmanager_1"
+        },
+        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+          "value": "shared_sharepointonline"
+        },
+        "8e3a3a3b-4737-4cbb-b700-be4f5984b39e": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "b39d745e-4a4e-4a37-b2b7-42e25b9ef587": {
+          "value": "shared_office365"
+        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -14,6 +26,18 @@
         }
       },
       "parameterHintsV2": {
+        "shared_encodiandocumentmanager_1": {
+          "value": "4ab88ff6-a47b-4496-abce-58c5f86ecc23"
+        },
+        "shared_office365": {
+          "value": "b39d745e-4a4e-4a37-b2b7-42e25b9ef587"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "8e3a3a3b-4737-4cbb-b700-be4f5984b39e"
+        },
+        "shared_sharepointonline": {
+          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -36,13 +60,28 @@
     "dependents": [],
     "id": "11e5303f-54f1-4128-b8b2-4c94c6a077c5"
   },
+  "35335b3e-cbad-497b-8e23-da61e2b821c0": {
+    "connectionRef": {
+      "displayName": "Encodian",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1638/1.0.1638.3308/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/9eb33a4fa33543198c98d0508460530b"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6"
+    ],
+    "id": "35335b3e-cbad-497b-8e23-da61e2b821c0"
+  },
   "4ab88ff6-a47b-4496-abce-58c5f86ecc23": {
     "connectionRef": {
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24095.15",
-        "modifiedOn": "2024-10-21 14:22:45",
+        "modifiedOn": "2024-10-21 14:23:33",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -124,9 +163,47 @@
     "dependencies": {},
     "dependents": [
       "cd576203-6f47-4805-a0d9-c6b5d7513ff5",
-      "11e5303f-54f1-4128-b8b2-4c94c6a077c5"
+      "11e5303f-54f1-4128-b8b2-4c94c6a077c5",
+      "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6"
     ],
     "id": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+  },
+  "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6": {
+    "connectionRef": {
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3955/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesCivil"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "000b75d9-3c69-462d-a4bf-82a1481da899"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesCivil"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "000b75d9-3c69-462d-a4bf-82a1481da899"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GenerarPdfImagenesCivil"
+    ],
+    "dependencies": {
+      "shared_encodiandocumentmanager_1": "35335b3e-cbad-497b-8e23-da61e2b821c0",
+      "shared_office365": "b39d745e-4a4e-4a37-b2b7-42e25b9ef587",
+      "shared_onedriveforbusiness": "8e3a3a3b-4737-4cbb-b700-be4f5984b39e",
+      "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+    },
+    "dependents": [],
+    "id": "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6"
   },
   "8e3a3a3b-4737-4cbb-b700-be4f5984b39e": {
     "connectionRef": {
@@ -139,7 +216,8 @@
     "dependencies": {},
     "dependents": [
       "cd576203-6f47-4805-a0d9-c6b5d7513ff5",
-      "11e5303f-54f1-4128-b8b2-4c94c6a077c5"
+      "11e5303f-54f1-4128-b8b2-4c94c6a077c5",
+      "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6"
     ],
     "id": "8e3a3a3b-4737-4cbb-b700-be4f5984b39e"
   },
@@ -154,7 +232,8 @@
     "dependencies": {},
     "dependents": [
       "cd576203-6f47-4805-a0d9-c6b5d7513ff5",
-      "11e5303f-54f1-4128-b8b2-4c94c6a077c5"
+      "11e5303f-54f1-4128-b8b2-4c94c6a077c5",
+      "60edaa83-9360-4b6d-a11f-cec7ca7bf4d6"
     ],
     "id": "b39d745e-4a4e-4a37-b2b7-42e25b9ef587"
   },
