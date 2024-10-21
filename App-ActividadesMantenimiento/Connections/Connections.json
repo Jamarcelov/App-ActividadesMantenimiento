@@ -1,0 +1,347 @@
+{
+  "1aafc107-6c86-4600-94ec-7c19da994eca": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
+          "value": "shared_office365"
+        },
+        "303a507e-7d2b-4d4a-8c28-157e9c973b2c": {
+          "value": "shared_encodiandocumentmanager"
+        },
+        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+          "value": "shared_sharepointonline"
+        },
+        "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesEmergencias"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "0075f1e9-2aea-4491-871d-cd83dba2a379"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_encodiandocumentmanager": {
+          "value": "303a507e-7d2b-4d4a-8c28-157e9c973b2c"
+        },
+        "shared_office365": {
+          "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+        },
+        "shared_sharepointonline": {
+          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesEmergencias"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "0075f1e9-2aea-4491-871d-cd83dba2a379"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GenerarPdfImagenesEmergencias"
+    ],
+    "dependencies": {
+      "shared_encodiandocumentmanager": "303a507e-7d2b-4d4a-8c28-157e9c973b2c",
+      "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
+      "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
+      "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+    },
+    "dependents": [],
+    "id": "1aafc107-6c86-4600-94ec-7c19da994eca"
+  },
+  "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office\u00A0365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3497b658-ae46-4811-a5e0-59143e25486b",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
+  },
+  "303a507e-7d2b-4d4a-8c28-157e9c973b2c": {
+    "connectionRef": {
+      "displayName": "Encodian",
+      "executionRestrictions": {
+        "apiId": "unknown",
+        "appVer": "3.24095.15",
+        "modifiedOn": "2024-10-21 14:17:22",
+        "policy": "{\"type\":\"invalid\"}",
+        "version": 1
+      },
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/85ccb002ac0b4503a40189d3a3d38201"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "303a507e-7d2b-4d4a-8c28-157e9c973b2c"
+  },
+  "3497b658-ae46-4811-a5e0-59143e25486b": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
+          "value": "shared_office365"
+        },
+        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+          "value": "shared_sharepointonline"
+        },
+        "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "e8a388b5-97e6-44d4-b538-7be723c8d3bd": {
+          "value": "shared_encodiandocumentmanager_1"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesCivil"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "000b75d9-3c69-462d-a4bf-82a1481da899"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_encodiandocumentmanager_1": {
+          "value": "e8a388b5-97e6-44d4-b538-7be723c8d3bd"
+        },
+        "shared_office365": {
+          "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+        },
+        "shared_sharepointonline": {
+          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenesCivil"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "000b75d9-3c69-462d-a4bf-82a1481da899"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GenerarPdfImagenesCivil"
+    ],
+    "dependencies": {
+      "shared_encodiandocumentmanager_1": "e8a388b5-97e6-44d4-b538-7be723c8d3bd",
+      "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
+      "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
+      "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+    },
+    "dependents": [],
+    "id": "3497b658-ae46-4811-a5e0-59143e25486b"
+  },
+  "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://south32-my.sharepoint.com/personal/marcj1_south32_net": {
+        "dataSources": {
+          "BD_Ejecucion_Mtto_Massy": {
+            "tableName": "4382de6d-ca89-4fb6-8cc6-95453ef8dbd6"
+          },
+          "BD_Emergencias_Mtto_Massy": {
+            "tableName": "7c7b0bc6-2b52-44c7-8962-87a768d97c6f"
+          },
+          "BD_Generadores_Massy": {
+            "tableName": "4bf47cca-bbd6-423d-ae30-e0a4721cde63"
+          },
+          "BD_Planeacion_Mtto_Massy": {
+            "tableName": "a94a351a-f19c-4e1c-8843-b5a6ee03fcf9"
+          },
+          "BD_Seg_Esti_Civil_Massy": {
+            "tableName": "694649fd-0667-4cba-9128-060469e8370b"
+          },
+          "BD_Seg_Prog_Civil_Massy": {
+            "tableName": "51af1e23-adc2-42dc-8fee-a440a68a23af"
+          }
+        }
+      },
+      "https://south32-my.sharepoint.com/personal/marcj1_south32_net/": {
+        "dataSources": {
+          "BD_Login_Massy": {
+            "tableName": "4607e73a-1b0f-41d0-8758-0a56c1d37dfe"
+          },
+          "BD_Seg_Ejec_Civil_Massy": {
+            "tableName": "84066d8c-b273-47cc-b4bc-f1d0057e8e82"
+          },
+          "Prueba_Galeria_Fotos": {
+            "tableName": "e3220944-48eb-43df-8b1c-ec6e1d1d4d1d"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "BD_Planeacion_Mtto_Massy",
+      "BD_Ejecucion_Mtto_Massy",
+      "BD_Emergencias_Mtto_Massy",
+      "BD_Generadores_Massy",
+      "BD_Seg_Ejec_Civil_Massy",
+      "BD_Seg_Prog_Civil_Massy",
+      "BD_Seg_Esti_Civil_Massy",
+      "Prueba_Galeria_Fotos",
+      "BD_Login_Massy"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "3497b658-ae46-4811-a5e0-59143e25486b",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+  },
+  "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive para la Empresa",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1689/1.0.1689.3722/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3497b658-ae46-4811-a5e0-59143e25486b",
+      "e06a58fa-1f83-4d67-a4cb-0acb859c277f",
+      "1aafc107-6c86-4600-94ec-7c19da994eca"
+    ],
+    "id": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+  },
+  "e06a58fa-1f83-4d67-a4cb-0acb859c277f": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1": {
+          "value": "shared_office365"
+        },
+        "303a507e-7d2b-4d4a-8c28-157e9c973b2c": {
+          "value": "shared_encodiandocumentmanager"
+        },
+        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+          "value": "shared_sharepointonline"
+        },
+        "c729ece7-c8f0-4f99-b1fc-778a624656b1": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenes"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "25bfbce2-acfa-483a-8e68-551dabfc5a2f"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_encodiandocumentmanager": {
+          "value": "303a507e-7d2b-4d4a-8c28-157e9c973b2c"
+        },
+        "shared_office365": {
+          "value": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "c729ece7-c8f0-4f99-b1fc-778a624656b1"
+        },
+        "shared_sharepointonline": {
+          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+        },
+        "workflowDisplayName": {
+          "value": "GenerarPdfImagenes"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "25bfbce2-acfa-483a-8e68-551dabfc5a2f"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GenerarPdfImagenes"
+    ],
+    "dependencies": {
+      "shared_encodiandocumentmanager": "303a507e-7d2b-4d4a-8c28-157e9c973b2c",
+      "shared_office365": "1c8d78f6-30f7-4b62-9fbc-e9fbd5bc70e1",
+      "shared_onedriveforbusiness": "c729ece7-c8f0-4f99-b1fc-778a624656b1",
+      "shared_sharepointonline": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+    },
+    "dependents": [],
+    "id": "e06a58fa-1f83-4d67-a4cb-0acb859c277f"
+  },
+  "e8a388b5-97e6-44d4-b538-7be723c8d3bd": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Encodian",
+      "executionRestrictions": {
+        "apiId": "unknown",
+        "appVer": "3.24095.15",
+        "modifiedOn": "2024-10-21 14:17:22",
+        "policy": "{\"type\":\"invalid\"}",
+        "version": 1
+      },
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/encodiandocumentmanager/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "runtimePolicyName": "b5ec73b0-8ee5-4fee-985a-cb816fa89aab",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_encodiandocumentmanager/connections/9eb33a4fa33543198c98d0508460530b"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3497b658-ae46-4811-a5e0-59143e25486b"
+    ],
+    "id": "e8a388b5-97e6-44d4-b538-7be723c8d3bd"
+  }
+}

@@ -1,0 +1,725 @@
+"'Detalle de actividades estimadas Civil' As screen":
+    OnVisible: =
+
+    Rectangle1_35 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_36 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =1018
+        ZIndex: =2
+
+    Label3_15 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1051
+        ZIndex: =3
+
+    Label1_72 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =481
+        Y: =975
+        ZIndex: =4
+
+    Icon3_10 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =76
+        X: =505
+        Y: =899
+        ZIndex: =5
+
+    FormViewer1_1 As formViewer:
+        DataSource: =BD_Seg_Esti_Civil_Massy
+        Height: =702
+        Item: =galListaSeguimientosCiviles_2.Selected
+        NumberOfColumns: =1
+        Width: =640
+        Y: =141
+        ZIndex: =6
+
+        HorasHombre_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="HorasHombre"
+            Default: =ThisItem.HorasHombre
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,HorasHombre)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey71 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="HORAS HOMBRE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue71 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey71.Y + DataCardKey71.Height + 5
+                ZIndex: =2
+
+        FechaActividad_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="FechaActividad"
+            Default: =ThisItem.FechaActividad
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,FechaActividad)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =26
+
+            DataCardKey64 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="FECHA:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue64 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey64.Y + DataCardKey64.Height + 5
+                ZIndex: =2
+
+        PuestoTrabajo_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PuestoTrabajo"
+            Default: =ThisItem.PuestoTrabajo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,PuestoTrabajo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =26
+
+            DataCardKey65 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="PUESTO DE TRABAJO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue65 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey65.Y + DataCardKey65.Height + 5
+                ZIndex: =2
+
+        OrdenActividad_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="OrdenActividad"
+            Default: =ThisItem.OrdenActividad
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,OrdenActividad)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =26
+
+            DataCardKey66 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="ACTIVIDAD - ORDEN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue66 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey66.Y + DataCardKey66.Height + 5
+                ZIndex: =2
+
+        RendimientoEsti_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RendimientoEsti"
+            Default: =ThisItem.RendimientoEsti
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,RendimientoEsti)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =26
+
+            DataCardKey68 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="RENDIMIENTO ESTIMADO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue68 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey68.Y + DataCardKey68.Height + 5
+                ZIndex: =2
+
+        NoTrabajadores_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="NoTrabajadores"
+            Default: =ThisItem.NoTrabajadores
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,NoTrabajadores)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =26
+
+            DataCardKey69 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="NÚMERO DE TRABAJADORES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue69 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey69.Y + DataCardKey69.Height + 5
+                ZIndex: =2
+
+        DuracionTrabajo_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="DuracionTrabajo"
+            Default: =ThisItem.DuracionTrabajo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Seg_Esti_Civil_Massy],DataSourceInfo.DisplayName,DuracionTrabajo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =26
+
+            DataCardKey70 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =14
+                Text: |-
+                    ="DURACIÓN DEL TRABAJO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue70 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
+                ZIndex: =2
+
+    Icon2_3 As icon.ZoomIn:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Trash
+        OnSelect: =Set(mensajeEliminarSeguimientosCivilesEstimados, true)
+        Width: =76
+        X: =44
+        Y: =898
+        ZIndex: =7
+
+    Icon3_9 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        DisplayMode: =If(DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =76
+        Icon: =Icon.Edit
+        OnSelect: =Set(avisoModificarTareaDetalleEsti, true)
+        Width: =76
+        X: =282
+        Y: =898
+        ZIndex: =8
+
+    Label1_58 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Eliminar"
+        Width: =125
+        X: =19
+        Y: =974
+        ZIndex: =9
+
+    Label1_60 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Editar"
+        Width: =125
+        X: =257
+        Y: =974
+        ZIndex: =10
+
+    Label1_109 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (ESTIMADO)"
+        Width: =532
+        X: =54
+        Y: =29
+        ZIndex: =11
+
+    grupMensajeEliminarSeguimientosCiviles_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        fondoAviso_14 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =640
+            ZIndex: =12
+
+        Rectangle4_14 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =13
+
+        Rectangle5_14 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =14
+
+        Label4_14 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            OnSelect: =
+            Size: =21
+            Text: ="¡ELIMINAR REGISTRO!"
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =15
+
+        Label7_18 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            OnSelect: =
+            Size: =21
+            Text: ="¿Quiere eliminar este registro?"
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =16
+
+        Button3_19 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Remove(BD_Seg_Esti_Civil_Massy, galListaSeguimientosCiviles_2.Selected); Set(mensajeEliminarSeguimientosCivilesEstimados, false); Back(); Notify("¡Registro eliminado correctamente!", NotificationType.Success, 2000)
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =17
+
+        Button3_20 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeEliminarSeguimientosCivilesEstimados, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeEliminarSeguimientosCivilesEstimados
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =18
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =38
+
+        fondoAviso_20 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =640
+            ZIndex: =19
+
+        Rectangle4_20 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =600
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =561
+            X: =40
+            Y: =226
+            ZIndex: =20
+
+        Rectangle5_20 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =560
+            X: =40
+            Y: =226
+            ZIndex: =21
+
+        Label4_20 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="MODIFICAR DATOS DE LA ACTIVIDAD"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =355
+            X: =138
+            Y: =243
+            ZIndex: =22
+
+        Button3_32 As button:
+            Fill: =RGBA(221, 79, 14, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(avisoModificarTareaDetalleEsti, false)
+            Size: =16
+            Text: ="CANCELAR"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =142
+            X: =360
+            Y: =725
+            ZIndex: =23
+
+        TextInput1_9 As text:
+            Default: =galListaSeguimientosCiviles_2.Selected.OrdenActividad
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Lato
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =519
+            X: =60
+            Y: =373
+            ZIndex: =24
+
+        Button3_31 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =Patch(
+                    BD_Seg_Esti_Civil_Massy, LookUp(BD_Seg_Esti_Civil_Massy, ID = galListaSeguimientosCiviles_2.Selected.ID),
+                    {
+                        FechaActividad: DateValue(DataCardValue64.Text),
+                        PuestoTrabajo: DataCardValue65.Text,
+                        OrdenActividad: DataCardValue66.Text,
+                        RendimientoEsti: Value(TextInput1_10.Text),
+                        NoTrabajadores: Value(TextInput3.Text),
+                        DuracionTrabajo: Value(TextInput3_1.Text),
+                        HorasHombre: Value(TextInput3_2.Text)
+                    }
+                ); Set(avisoModificarTareaDetalleEsti, false); Navigate('Ver rendimientos estimados Civil', ScreenTransition.CoverRight); Notify("¡Registro modificado con éxito!", NotificationType.Success, 2000)
+            Size: =16
+            Text: ="MODIFICAR"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =142
+            X: =121
+            Y: =725
+            ZIndex: =25
+
+        Label8_12 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="ACTIVIDAD - ORDEN:"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =200
+            X: =60
+            Y: =347
+            ZIndex: =26
+
+        TextInput1_10 As text:
+            Default: =galListaSeguimientosCiviles_2.Selected.RendimientoEsti
+            Font: =Font.Lato
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =246
+            X: =60
+            Y: =637
+            ZIndex: =27
+
+        Label8_13 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="PORCENTAJE DE AVANCE:"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =287
+            X: =60
+            Y: =611
+            ZIndex: =28
+
+        Label8_14 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="NO. TRABAJADORES:"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =200
+            X: =60
+            Y: =466
+            ZIndex: =32
+
+        Label8_15 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="DURACIÓN DEL TRABAJO:"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =220
+            X: =306
+            Y: =466
+            ZIndex: =33
+
+        Label8_16 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: |-
+                ="HORAS HOMBRE:"
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =200
+            X: =58
+            Y: =541
+            ZIndex: =34
+
+        TextInput3 As text:
+            Align: =Align.Center
+            Default: =DataCardValue69.Text
+            Font: =Font.Lato
+            Format: =TextFormat.Number
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =60
+            X: =235
+            Y: =449
+            ZIndex: =35
+
+        TextInput3_1 As text:
+            Align: =Align.Center
+            Default: =DataCardValue70.Text
+            Font: =Font.Lato
+            Format: =TextFormat.Number
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =60
+            X: =519
+            Y: =449
+            ZIndex: =36
+
+        TextInput3_2 As text:
+            Align: =Align.Center
+            Default: =Value(TextInput3.Text) * Value(TextInput3_1.Text)
+            Font: =Font.Lato
+            Format: =TextFormat.Number
+            Height: =60
+            Size: =14
+            Visible: =avisoModificarTareaDetalleEsti
+            Width: =60
+            X: =235
+            Y: =524
+            ZIndex: =37
+

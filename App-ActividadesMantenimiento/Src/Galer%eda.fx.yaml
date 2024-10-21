@@ -1,0 +1,97 @@
+Galería As screen:
+
+    Rectangle1_40 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_53 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_81 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES DE MANTENIMIENTO (CMSA - MASSY)"
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =5
+
+    Label3_24 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =13
+
+    Icon7_10 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =76
+        X: =517
+        Y: =882
+        ZIndex: =15
+
+    Label1_85 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =98
+        X: =506
+        Y: =953
+        ZIndex: =16
+
+    "Gallery4_1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
+        DelayItemLoading: =true
+        Height: =704
+        Items: =Gallery3.Selected.'Datos adjuntos'
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =4
+        TemplateSize: =215
+        Width: =610
+        WrapCount: =3
+        X: =14
+        Y: =140
+        ZIndex: =17
+
+        Image17_1 As image:
+            Height: =208
+            Image: =ThisItem.Value
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+

@@ -1,0 +1,1200 @@
+"'Registro de actividad planeada ejecutada' As screen":
+
+    Rectangle1_12 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =2
+
+    Rectangle1_13 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =5
+
+    Label1_21 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: |-
+            ="REGISTRO DE ACTIVIDADES 
+            PLANEADAS (EJECUTADAS)
+            "
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =6
+
+    btnGuardar_2 As button:
+        Color: =Color.White
+        Fill: =RGBA(3, 94, 143, 1)
+        Height: =78
+        OnSelect: |-
+            =If(IsBlank(DataCardValue13.Text) 
+            Or IsBlank(lsHHInicio.SelectedText.Value) Or IsBlank(lsMMInicio.SelectedText.Value) Or IsBlank(lsAmPmInicio.SelectedText.Value)
+            Or IsBlank(lsHHFin.SelectedText.Value) Or IsBlank(lsMMFin.SelectedText.Value) Or IsBlank(lsAmPmFin.SelectedText.Value) 
+            Or IsBlank(DataCardValue8.Text)
+            Or IsBlank(DataCardValue50.SelectedItems)
+            Or IsBlank(DataCardValue14.Text)
+            , Notify("¡Existen campos sin llenar, por favor completar el formulario!", NotificationType.Warning, 2000), SubmitForm(EditForm1); Notify("¡Registro guardado con éxito!", NotificationType.Success, 2000))
+        Size: =24
+        Text: ="GUARDAR"
+        Width: =213
+        X: =209
+        Y: =880
+        ZIndex: =7
+
+    EditForm1 As form:
+        DataSource: =[@BD_Ejecucion_Mtto_Massy]
+        Height: =712
+        Item: =galListaPlaneado.Selected
+        OnSuccess: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.CoverRight); Clear(itemsAdjuntos)
+        Width: =640
+        Y: =130
+        ZIndex: =8
+
+        Hora_Inicio_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Inicio"
+            Default: =ThisItem.Hora_Inicio
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Inicio)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =140
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Hora_Inicio)
+            Required: =false
+            Update: |-
+                =lsHHInicio.SelectedText.Value & ":" & lsMMInicio.SelectedText.Value & " " & lsAmPmInicio.SelectedText.Value 
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey20 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA INICIO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            StarVisible8 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey20.Height
+                Size: =21
+                Text: ="*"
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey20.Y
+                ZIndex: =3
+
+            lsAmPmInicio As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["", "AM", "PM"]
+                Size: =21
+                Width: =140
+                X: =349
+                Y: =52
+                ZIndex: =4
+
+            lsMMInicio As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["", "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
+                Size: =21
+                Width: =140
+                X: =190
+                Y: =52
+                ZIndex: =5
+
+            lsHHInicio As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["","1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+                Size: =21
+                Width: =140
+                X: =30
+                Y: =52
+                ZIndex: =6
+
+            Label11 As label:
+                Align: =Align.Center
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                Size: =21
+                Text: |-
+                    =":"
+                Width: =20
+                X: =170
+                Y: =50
+                ZIndex: =7
+
+        Hora_Fin_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Fin"
+            Default: =ThisItem.Hora_Fin
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Fin)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =140
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Hora_Fin)
+            Required: =false
+            Update: |-
+                =lsHHFin.SelectedText.Value & ":" & lsMMFin.SelectedText.Value & " " & lsAmPmFin.SelectedText.Value
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey21 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA FIN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            StarVisible11 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey21.Height
+                Size: =21
+                Text: ="*"
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey21.Y
+                ZIndex: =4
+
+            lsAmPmFin As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["", "AM", "PM"]
+                Size: =21
+                Width: =140
+                X: =349
+                Y: =52
+                ZIndex: =5
+
+            lsMMFin As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["", "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
+                Size: =21
+                Width: =140
+                X: =190
+                Y: =52
+                ZIndex: =6
+
+            lsHHFin As dropdown:
+                Default: =" "
+                Height: =70
+                Items: =["","1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+                Size: =21
+                Width: =140
+                X: =30
+                Y: =52
+                ZIndex: =7
+
+            Label11_1 As label:
+                Align: =Align.Center
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                Size: =21
+                Text: |-
+                    =":"
+                Width: =20
+                X: =170
+                Y: =52
+                ZIndex: =8
+
+        Ubicacion_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ubicacion"
+            Default: =ThisItem.Ubicacion
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Ubicacion)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Ubicacion)
+            Required: =true
+            Update: =DataCardValue8.Text
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey8 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="UBICACIÓN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue8 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                ZIndex: =2
+
+            ErrorMessage16 As label:
+                AutoHeight: =true
+                Font: =Font.Lato
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =19
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue8.Y + DataCardValue8.Height
+                ZIndex: =3
+
+            StarVisible16 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey8.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey8.Y
+                ZIndex: =4
+
+        Equipo_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Equipo"
+            Default: =ThisItem.Equipo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Equipo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Equipo)
+            Required: =false
+            Update: =DataCardValue1.Text
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey1 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="EQUIPO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =20
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue1.Y + DataCardValue1.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1.Y
+                ZIndex: =4
+
+        Subsecuente_DataCard1 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Subsecuente"
+            Default: =ThisItem.Subsecuente
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Subsecuente)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue50.Selected
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey50 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="SE REQUIERE SUBSECUENTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue50 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =70
+                Items: =Choices([@BD_Ejecucion_Mtto_Massy].Subsecuente)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(BD_Ejecucion_Mtto_Massy.Subsecuente,DataCardValue50.SearchText)
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey50.Y + DataCardKey50.Height + 5
+                ZIndex: =2
+
+            ErrorMessage25 As label:
+                AutoHeight: =true
+                Font: =Font.Lato
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =19
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue50.Y + DataCardValue50.Height
+                ZIndex: =3
+
+            StarVisible25 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey50.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey50.Y
+                ZIndex: =4
+
+        Nombre_Ejecutante_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Nombre_Ejecutante"
+            Default: =ThisItem.Nombre_Ejecutante
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Nombre_Ejecutante)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Nombre_Ejecutante)
+            Required: =true
+            Update: =DataCardValue51.Text
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey51 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NOMBRE DEL EJECUTANTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue51 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =galLoginUsuario.Selected.NombreUsuario
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode.View
+                Font: =Font.Lato
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey51.Y + DataCardKey51.Height + 5
+                ZIndex: =2
+
+            ErrorMessage26 As label:
+                AutoHeight: =true
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =20
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue51.Y + DataCardValue51.Height
+                ZIndex: =3
+
+            StarVisible26 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey51.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey51.Y
+                ZIndex: =4
+
+        "'Datos adjuntos_DataCard1' As typedDataCard.attachmentsEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =itemsAdjuntos.DisplayName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,'Datos adjuntos')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =491
+            Required: =false
+            Update: =itemsAdjuntos
+            Width: =640
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Size: =19
+                Text: |-
+                    ="IMÁGENES ADJUNTAS:"
+                Width: =312
+                Wrap: =false
+                X: =30
+                Y: =33
+                ZIndex: =1
+
+            DataCardValue17 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Font: =Font.Lato
+                Height: =370
+                IsInDataCard: =true
+                Items: =Gallery1.AllItems
+                OnAddFile: |-
+                    =//ForAll(DataCardValue17.Attachments; Collect(itemSeleccionados;{DisplayName: ThisRecord.Name;Id: GUID();Value: ThisRecord.Value}))
+                    Collect(itemsAdjuntos,{DisplayName: Last(DataCardValue17.Attachments).Name, Id: GUID(), Value: Last(DataCardValue17.Attachments).Value})
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =117
+                ZIndex: =2
+
+            ErrorMessage9 As label:
+                AutoHeight: =true
+                Font: =Font.Lato
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =19
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible9 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey17.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey17.Y
+                ZIndex: =4
+
+            Image12_1 As image:
+                Height: =90
+                Image: ='galeriFotos.jpg'
+                OnSelect: =Navigate('Historial de fotos para adjuntar planeadas', ScreenTransition.Cover) ; Clear(itemSeleccionados)
+                Width: =90
+                X: =370
+                Y: =10
+                ZIndex: =5
+
+            Label1_83 As label:
+                Align: =Align.Center
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Segoe UI'
+                Height: =44
+                OnSelect: =
+                Size: =16
+                Text: ="Adjuntar de Galería"
+                Width: =125
+                X: =460
+                Y: =33
+                ZIndex: =6
+
+        Galeria_Datos_Adjuntos_DataCard1 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =225
+            Width: =640
+            X: =0
+            Y: =13
+            ZIndex: =1
+
+            "Gallery1 As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtrada"
+                DelayItemLoading: =true
+                Height: =241
+                Items: =itemsAdjuntos
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =4
+                TemplateSize: =136
+                Width: =569
+                WrapCount: =5
+                X: =30
+                Y: =15
+                ZIndex: =1
+
+                Image7 As image:
+                    Height: =87
+                    Image: =ThisItem.Value
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =103
+                    ZIndex: =1
+
+                Icon14 As icon.ChevronDown:
+                    Color: =RGBA(184, 0, 0, 1)
+                    Height: =42
+                    Icon: =Icon.Trash
+                    OnSelect: =Remove(itemsAdjuntos, ThisItem)
+                    Width: =50
+                    X: =26
+                    Y: =94
+                    ZIndex: =2
+
+        Fecha_DataCard2 As typedDataCard.dateEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Fecha"
+            Default: =ThisItem.Fecha
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Fecha)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue10.SelectedDate
+            Width: =640
+            WidthFit: =false
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+            DataCardKey10 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="FECHA:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue10 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =dtFechaPlaneada.SelectedDate
+                DisplayMode: =DisplayMode.View
+                EndYear: =Year(Today())+100
+                Font: =Font.Lato
+                Height: =70
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                Size: =21
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue10.Y + DataCardValue10.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey10.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey10.Y
+                ZIndex: =4
+
+        Puesto_De_Trabajo_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Puesto_De_Trabajo"
+            Default: =ThisItem.Puesto_De_Trabajo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Planeacion_Mtto_Massy],DataSourceInfo.DisplayName,Puesto_Trabajo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Puesto_De_Trabajo)
+            Required: =false
+            Update: =DataCardValue11.Text
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =9
+
+            DataCardKey11 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="PUESTO DE TRABAJO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue11 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =lsPuestoPlaneado.SelectedText.Value
+                DelayOutput: =true
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Lato
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue11.Y + DataCardValue11.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey11.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey11.Y
+                ZIndex: =4
+
+        Orden_Descripcion_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Orden_x002d_Descripcion"
+            Default: =ThisItem.Orden_Descripcion
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Orden_Descripcion)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =156
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Orden_Descripcion)
+            Required: =false
+            Update: =DataCardValue12.Text
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =9
+
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="ORDEN - ACTIVIDAD:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =lsOrdenDescripcionPlaneado.SelectedText.'Orden-Descripcion' //& LookUp(BD_Planeacion_Mtto_Massy; 'Orden-Descripcion' = lsOrdenDescripcionPlaneado.SelectedText.'Orden-Descripcion'; Tipo)
+                DelayOutput: =true
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Lato
+                Height: =80
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =19
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                ZIndex: =2
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue12.Y + DataCardValue12.Height
+                ZIndex: =3
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Height: =DataCardKey12.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12.Y
+                ZIndex: =4
+
+        No_Trabajadores_DataCard2 As typedDataCard.numberEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="No_Trabajadores"
+            Default: =ThisItem.No_Trabajadores
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,No_Trabajadores)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =131
+            Required: =true
+            Update: =Value(DataCardValue13.Text)
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =9
+
+            DataCardKey13 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NÚMERO DE TRABAJADORES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Format: =TextFormat.Number
+                Height: =70
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                ZIndex: =2
+
+            ErrorMessage5 As label:
+                Color: =RGBA(184, 0, 0, 1)
+                Font: =Font.Lato
+                Height: =28
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =19
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue13.Y + DataCardValue13.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey13.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey13.Y
+                ZIndex: =4
+
+        Observaciones_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Observaciones"
+            Default: =ThisItem.Observaciones
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Observaciones)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Observaciones)
+            Required: =true
+            Update: =DataCardValue14.Text
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =9
+
+            DataCardKey14 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="TRABAJO EJECUTADO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =204
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                ZIndex: =2
+
+            ErrorMessage6 As label:
+                Color: =RGBA(184, 0, 0, 1)
+                Font: =Font.Lato
+                Height: =10
+                Italic: =true
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =19
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue14.Y + DataCardValue14.Height
+                ZIndex: =3
+
+            StarVisible6 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey14.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey14.Y
+                ZIndex: =4
+
+        Hallazgos_Pendientes_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hallazgos_x002d_Pendientes"
+            Default: =ThisItem.Hallazgos_Pendientes
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy],DataSourceInfo.DisplayName,Hallazgos_Pendientes)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.MaxLength, Hallazgos_Pendientes)
+            Required: =false
+            Update: =DataCardValue15.Text
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =9
+
+            DataCardKey15 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HALLAZGOS O PENDIENTES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =204
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                ZIndex: =2
+
+            ErrorMessage7 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue15.Y + DataCardValue15.Height
+                ZIndex: =3
+
+            StarVisible7 As label:
+                Align: =Align.Center
+                Height: =DataCardKey15.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey15.Y
+                ZIndex: =4
+
+    Icon1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Puesto y orden de actividad planeada ejecutada', ScreenTransition.CoverRight); ResetForm(EditForm1); Clear(itemSeleccionados)
+        Width: =76
+        X: =512
+        Y: =859
+        ZIndex: =9
+
+    Label1_9 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =21
+        Text: ="Atrás"
+        Width: =125
+        X: =488
+        Y: =935
+        ZIndex: =10
+
+    Label3_6 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: ="2023 - Servicios a la operación (CMSA)"
+        Width: =560
+        X: =40
+        Y: =1036
+        ZIndex: =11
+

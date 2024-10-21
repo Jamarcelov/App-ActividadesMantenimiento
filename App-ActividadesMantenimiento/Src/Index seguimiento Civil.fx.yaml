@@ -1,0 +1,135 @@
+"'Index seguimiento Civil' As screen":
+
+    Rectangle1_41 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    "galLoginUsuario_2 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
+        Height: =99
+        Items: =LookUp(BD_Login_Massy, Usuario = txtUsuario.Text)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =388
+        X: =159
+        Y: =144
+        ZIndex: =1
+
+        Title3_2 As label:
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            Italic: =true
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.NombreUsuario
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+    Rectangle1_42 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_86 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (CMSA - MASSY)"
+        Width: =532
+        X: =54
+        Y: =29
+        ZIndex: =5
+
+    Label1_87 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =Navigate('Menú registro de rendimientos Civil', ScreenTransition.Cover)
+        Size: =18
+        Text: ="SEGUIMIENTO DE ACTIVIDADES  CIVILES PLANEADAS"
+        Width: =411
+        X: =114
+        Y: =605
+        ZIndex: =8
+
+    Image5_1 As image:
+        Height: =155
+        Image: =logoPlaneado
+        OnSelect: =Navigate('Menú registro de rendimientos Civil', ScreenTransition.Cover)
+        Width: =142
+        X: =249
+        Y: =424
+        ZIndex: =12
+
+    Label3_17 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1030
+        ZIndex: =13
+
+    Label2_2 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =46
+        Italic: =true
+        Size: =20
+        Text: ="Bienvenido(a),"
+        Width: =170
+        X: =19
+        Y: =139
+        ZIndex: =14
+
+    Icon7_5 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =65
+        Icon: =Icon.Leave
+        OnSelect: =Navigate(Login, ScreenTransition.Cover); Reset(txtUsuario); Reset(txtClave)
+        Width: =65
+        X: =517
+        Y: =895
+        ZIndex: =15
+
+    Label1_89 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.Lato
+        Height: =44
+        OnSelect: =
+        Size: =16
+        Text: ="Cerrar sesión"
+        Width: =137
+        X: =481
+        Y: =953
+        ZIndex: =16
+

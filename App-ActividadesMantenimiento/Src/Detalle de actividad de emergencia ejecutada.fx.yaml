@@ -1,0 +1,1035 @@
+"'Detalle de actividad de emergencia ejecutada' As screen":
+
+    Rectangle1_16 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =129
+        Width: =640
+        ZIndex: =1
+
+    Rectangle1_17 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =997
+        ZIndex: =4
+
+    Label1_23 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =18
+        Text: |-
+            ="DETALLE DE ACTIVIDAD
+            EMERGENCIA / EJECUTADA"
+        Width: =560
+        X: =36
+        Y: =29
+        ZIndex: =5
+
+    detalleActividadEmergencia As formViewer:
+        DataSource: =[@BD_Emergencias_Mtto_Massy]
+        Height: =682
+        Item: =galListaEmergencia.Selected
+        Width: =640
+        Y: =150
+        ZIndex: =6
+
+        Fecha_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Fecha"
+            Default: =ThisItem.Fecha
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Fecha)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey22 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="FECHA:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue22 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                ZIndex: =2
+
+        "'Puesto de trabajo_DataCard1' As typedDataCard.comboBoxViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Puestodetrabajo"
+            Default: =ThisItem.'Puesto de trabajo'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,'Puesto de trabajo')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue23.Selected
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey23 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="PUESTO DE TRABAJO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue23 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =70
+                Items: =Choices([@BD_Emergencias_Mtto_Massy].'Puesto de trabajo')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(BD_Emergencias_Mtto_Massy.'Puesto de trabajo',DataCardValue23.SearchText)
+                SelectMultiple: =false
+                Size: =21
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                ZIndex: =2
+
+            ErrorMessage21 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue23.Y + DataCardValue23.Height
+                ZIndex: =3
+
+            StarVisible21 As label:
+                Align: =Align.Center
+                Height: =DataCardKey23.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey23.Y
+                ZIndex: =4
+
+        "'Nombre de la actividad_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Orden_Descripci_x00f3_n"
+            Default: =ThisItem.'Nombre de la actividad'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,'Nombre de la actividad')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey38 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NOMBRE DE LA ACTIVIDAD:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue38 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                ZIndex: =2
+
+        "'No. Trabajadores_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="N_x00fa_merodetrabajadores"
+            Default: =ThisItem.'No. Trabajadores'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,'No. Trabajadores')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey41 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NÚMERO DE TRABAJADORES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue41 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey41.Y + DataCardKey41.Height + 5
+                ZIndex: =2
+
+        Hora_Inicio_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Inicio"
+            Default: =ThisItem.Hora_Inicio
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Inicio)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey9 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA INICIO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue9 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                ZIndex: =2
+
+        Hora_Fin_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hora_Fin"
+            Default: =ThisItem.Hora_Fin
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Hora_Fin)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HORA FIN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue18 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+
+        Equipo_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Equipo"
+            Default: =ThisItem.Equipo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Equipo)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey43 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="EQUIPO:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue43 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                ZIndex: =2
+
+        Ubicacion_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ubicacion"
+            Default: =ThisItem.Ubicacion
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Ubicacion)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey44 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="UBICACIÓN:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue44 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey44.Y + DataCardKey44.Height + 5
+                ZIndex: =2
+
+        Subsecuente_DataCard5 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Subsecuente"
+            Default: =ThisItem.Subsecuente
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Subsecuente)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =91
+            Required: =false
+            Update: =DataCardValue60.Selected
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey60 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="SE REQUIERE SUBSECUENTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue60 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =52
+                Items: =Choices([@BD_Emergencias_Mtto_Massy].Subsecuente)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(BD_Emergencias_Mtto_Massy.Subsecuente,DataCardValue60.SearchText)
+                SelectMultiple: =false
+                Size: =21
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey60.Y + DataCardKey60.Height + 5
+                ZIndex: =2
+
+            ErrorMessage41 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue60.Y + DataCardValue60.Height
+                ZIndex: =3
+
+            StarVisible41 As label:
+                Align: =Align.Center
+                Height: =DataCardKey60.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey60.Y
+                ZIndex: =4
+
+        Observaciones_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Observaciones"
+            Default: =ThisItem.Observaciones
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Observaciones)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey45 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="OBSERVACIONES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue45 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey45.Y + DataCardKey45.Height + 5
+                ZIndex: =2
+
+        "'Hallazgos o pendientes_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Hallazgosopendientes"
+            Default: =ThisItem.'Hallazgos o pendientes'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,'Hallazgos o pendientes')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey46 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="HALLAZGOS O PENDIENTES:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue46 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey46.Y + DataCardKey46.Height + 5
+                ZIndex: =2
+
+        Nombre_Ejecutante_DataCard6 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Nombre_Ejecutante"
+            Default: =ThisItem.Nombre_Ejecutante
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,Nombre_Ejecutante)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey59 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="NOMBRE DEL EJECUTANTE:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue59 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey59.Y + DataCardKey59.Height + 5
+                ZIndex: =2
+
+        "'Datos adjuntos_DataCard5' As typedDataCard.attachmentsViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.'Datos adjuntos'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@BD_Emergencias_Mtto_Massy],DataSourceInfo.DisplayName,'Datos adjuntos')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue61.Attachments
+            Width: =640
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey61 As label:
+                AutoHeight: =true
+                Color: =RGBA(3, 94, 143, 1)
+                Font: =Font.'Lato Black'
+                Height: =48
+                Size: =19
+                Text: |-
+                    ="IMÁGENES ADJUNTAS:"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue61 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                Height: =520
+                IsInDataCard: =true
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =21
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey61.Y + DataCardKey61.Height + 5
+                ZIndex: =2
+
+            ErrorMessage42 As label:
+                AutoHeight: =true
+                Height: =10
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue61.Y + DataCardValue61.Height
+                ZIndex: =3
+
+            StarVisible42 As label:
+                Align: =Align.Center
+                Height: =DataCardKey61.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey61.Y
+                ZIndex: =4
+
+    Icon2_1 As icon.ZoomIn:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Trash
+        OnSelect: =Set(mensajeEliminarEmergencias, true)
+        Width: =76
+        X: =53
+        Y: =857
+        ZIndex: =7
+
+    Icon3_2 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        DisplayMode: =If(DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =76
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(EditForm2); ClearCollect(itemsAdjuntos, galListaEmergencia.Selected.'Datos adjuntos'); Navigate('Edición de actividad de emergencia ejecutada', ScreenTransition.Cover)
+        Width: =76
+        X: =209
+        Y: =857
+        ZIndex: =8
+
+    Label1_12 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Eliminar"
+        Width: =125
+        X: =28
+        Y: =933
+        ZIndex: =9
+
+    Label1_31 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Editar"
+        Width: =125
+        X: =184
+        Y: =933
+        ZIndex: =10
+
+    Label1_32 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =481
+        Y: =933
+        ZIndex: =11
+
+    Icon3_3 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Ver actividades de emergencia ejecutadas', ScreenTransition.CoverRight)
+        Width: =76
+        X: =505
+        Y: =857
+        ZIndex: =12
+
+    Icon7_1 As icon.ChevronDown:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =76
+        Icon: =Icon.Send
+        OnSelect: =Set(mensajeConfirmarReporteEmergencias, true)
+        Width: =76
+        X: =361
+        Y: =857
+        ZIndex: =14
+
+    Label1_35 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =64
+        OnSelect: =
+        Size: =18
+        Text: ="Enviar reporte"
+        Width: =125
+        X: =336
+        Y: =923
+        ZIndex: =15
+
+    Label3_4 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: ="2023 - Servicios a la operación (CMSA)"
+        Width: =560
+        X: =40
+        Y: =1036
+        ZIndex: =22
+
+    Group1_2 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =22
+
+        fondoAviso_5 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.22)
+            Height: =1136
+            Visible: =avisoReporteEnviado
+            Width: =640
+            ZIndex: =16
+
+        Rectangle4_5 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            Visible: =avisoReporteEnviado
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =17
+
+        Rectangle5_5 As rectangle:
+            Fill: =RGBA(255, 217, 0, 1)
+            Height: =98
+            Visible: =avisoReporteEnviado
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =18
+
+        Label4_5 As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="¡LISTO!"
+            Visible: =avisoReporteEnviado
+            Width: =355
+            X: =141
+            Y: =411
+            ZIndex: =19
+
+        Label7_9 As label:
+            Align: =Align.Center
+            Color: =RGBA(54, 176, 75, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            Size: =21
+            Text: ="¡El reporte se ha enviado con éxito!"
+            Visible: =avisoReporteEnviado
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =20
+
+        Button3_5 As button:
+            Fill: =RGBA(92, 92, 92, 1)
+            Height: =75
+            HoverFill: =ColorFade(RGBA(92, 92, 92, 100), -20%)
+            OnSelect: =Set(avisoReporteEnviado, false)
+            Size: =20
+            Text: ="CERRAR"
+            Visible: =avisoReporteEnviado
+            Width: =165
+            X: =236
+            Y: =641
+            ZIndex: =21
+
+    grupMensajeEliminarEmergencias As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        fondoAviso_10 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =mensajeEliminarEmergencias
+            Width: =640
+            ZIndex: =23
+
+        Rectangle4_10 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            Visible: =mensajeEliminarEmergencias
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =24
+
+        Rectangle5_10 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =mensajeEliminarEmergencias
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =25
+
+        Label4_10 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="¡ELIMINAR REGISTRO!"
+            Visible: =mensajeEliminarEmergencias
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =26
+
+        Label7_14 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            Size: =21
+            Text: ="¿Quiere eliminar este registro?"
+            Visible: =mensajeEliminarEmergencias
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =27
+
+        Button3_12 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Remove([@BD_Emergencias_Mtto_Massy], galListaEmergencia.Selected); If (IsEmpty(Errors([@BD_Emergencias_Mtto_Massy], galListaEmergencia.Selected)), Back()); Set(mensajeEliminarEmergencias, false); Notify("¡Registro eliminado correctamente!", NotificationType.Success, 2000)
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeEliminarEmergencias
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =28
+
+        Button3_11 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeEliminarEmergencias, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeEliminarEmergencias
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =29
+
+    grupMensajeConfirmarReporteEmergencias As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        fondoAviso_12 As rectangle:
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =640
+            ZIndex: =30
+
+        Rectangle4_12 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =527
+            X: =52
+            Y: =404
+            ZIndex: =31
+
+        Rectangle5_12 As rectangle:
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =527
+            X: =52
+            Y: =391
+            ZIndex: =32
+
+        Label4_12 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            Size: =21
+            Text: ="CONFIRMAR ENVÍO DE REPORTE"
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =484
+            X: =73
+            Y: =411
+            ZIndex: =33
+
+        Label7_16 As label:
+            Align: =Align.Center
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            Size: =21
+            Text: ="¿Quiere enviar el reporte?"
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =527
+            X: =52
+            Y: =488
+            ZIndex: =34
+
+        Button3_16 As button:
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =GenerarPdfImagenesEmergencias.Run(galListaEmergencia.Selected.ID); Set(mensajeConfirmarReporteEmergencias, false); Notify("¡Reporte enviado con éxito!", NotificationType.Success, 2000) 
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =165
+            X: =98
+            Y: =635
+            ZIndex: =35
+
+        Button3_15 As button:
+            Fill: =RGBA(3, 94, 143, 1)
+            Height: =75
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeConfirmarReporteEmergencias, false)
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeConfirmarReporteEmergencias
+            Width: =165
+            X: =366
+            Y: =635
+            ZIndex: =36
+

@@ -1,0 +1,290 @@
+"'Rendimiento de actividades ejecutadas Civil' As screen":
+    OnVisible: =
+
+    Rectangle1_51 As rectangle:
+        Fill: =RGBA(255, 230, 3, 1)
+        Height: =92
+        Width: =640
+        ZIndex: =3
+
+    Rectangle1_52 As rectangle:
+        Fill: =RGBA(242, 141, 0, 1)
+        Height: =5
+        Width: =594
+        X: =19
+        Y: =1062
+        ZIndex: =4
+
+    Label3_22 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =70
+        Italic: =true
+        Size: =21
+        Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+        Width: =560
+        X: =40
+        Y: =1066
+        ZIndex: =5
+
+    btnGuardar_10 As button:
+        Color: =Color.White
+        Fill: =RGBA(3, 94, 143, 1)
+        Height: =70
+        OnSelect: |-
+            =If(IsBlank(TextInput2_2.Text) Or Dropdown1.SelectedText.Value = "-- Seleccionar --", Notify("¡Existen campos sin llenar, por favor completar la información!", NotificationType.Warning, 2000), 
+            Patch(
+                BD_Seg_Ejec_Civil_Massy,
+                Defaults(BD_Seg_Ejec_Civil_Massy),
+                {
+                    FechaActividad: dtFechaPlaneada_3.SelectedDate,
+                    PuestoTrabajo: Label4_2.Text,
+                    OrdenActividad: Concatenate(
+                        Label6_2.Text,
+                        " - ",
+                        lsOrden_2.SelectedText.Value
+                    ),
+                    RendimientoEjec: Value(TextInput2_2.Text),
+                    Cumplimiento: Dropdown1.SelectedText,
+                    Observaciones: TextInput2_3.Text
+                }
+            ); Reset(dtFechaPlaneada_3); Reset(TextInput2_2); Reset(Dropdown1); Reset(TextInput2_3) ; Navigate('Ver rendimientos ejecutados Civil', ScreenTransition.Cover);Notify("¡Registro guardado con éxito!", NotificationType.Success, 2000))
+        Size: =22
+        Text: ="GUARDAR"
+        Width: =213
+        X: =209
+        Y: =970
+        ZIndex: =6
+
+    dtFechaPlaneada_3 As datepicker:
+        Font: =Font.Lato
+        Format: =Text(dtFechaPlaneada_3.SelectedDate, "dd/mm/yyyy") 
+        Height: =60
+        Size: =16
+        Width: =575
+        X: =28
+        Y: =240
+        ZIndex: =7
+
+    Label1_62 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="FECHA:"
+        Width: =338
+        X: =28
+        Y: =197
+        ZIndex: =8
+
+    Label1_68 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="ACTIVIDAD:"
+        Width: =338
+        X: =28
+        Y: =462
+        ZIndex: =9
+
+    Label1_61 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="PUESTO DE TRABAJO:"
+        Width: =338
+        X: =28
+        Y: =94
+        ZIndex: =10
+
+    Label4_2 As label:
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =16
+        Text: ="Civil"
+        Width: =577
+        X: =28
+        Y: =137
+        ZIndex: =11
+
+    Label1_64 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="ORDEN:"
+        Width: =338
+        X: =28
+        Y: =358
+        ZIndex: =12
+
+    lsOrden_2 As dropdown:
+        Font: =Font.Lato
+        Height: =60
+        Items: =Distinct(Filter(BD_Planeacion_Mtto_Massy, Semana = lblSemana_1.Text And Puesto_Trabajo = "Civil" /*And Fecha = Text(dtFechaPlaneada_3.SelectedDate; "dd/mm/yyyy")*/), Orden)
+        Size: =16
+        Width: =575
+        X: =28
+        Y: =401
+        ZIndex: =13
+
+    Label6_2 As label:
+        BorderThickness: =2
+        Font: =Font.Lato
+        Height: =60
+        Size: =16
+        Text: =LookUp(BD_Planeacion_Mtto_Massy, Orden = lsOrden_2.SelectedText.Value, Descripcion)
+        Width: =576
+        X: =28
+        Y: =505
+        ZIndex: =14
+
+    Label1_69 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Segoe UI'
+        Height: =44
+        OnSelect: =
+        Size: =18
+        Text: ="Atrás"
+        Width: =125
+        X: =475
+        Y: =1018
+        ZIndex: =15
+
+    Icon3_12 As icon.Check:
+        Color: =RGBA(3, 94, 143, 1)
+        Height: =70
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Ver rendimientos estimados Civil', ScreenTransition.CoverRight)
+        Width: =70
+        X: =499
+        Y: =962
+        ZIndex: =16
+
+    Label1_114 As label:
+        Color: =RGBA(242, 141, 0, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        OnSelect: =
+        Size: =14
+        Text: |-
+            ="SEMANA:"
+        Width: =338
+        X: =28
+        Y: =309
+        ZIndex: =20
+
+    lblSemana_1 As label:
+        Font: =Font.Lato
+        Height: =32
+        Italic: =true
+        Size: =14
+        Text: ="Semana " & ISOWeekNum(dtFechaPlaneada_3.SelectedDate) & " - " & Year(Today())
+        Width: =176
+        X: =124
+        Y: =320
+        ZIndex: =21
+
+    Label1_113 As label:
+        Align: =Align.Center
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =72
+        Size: =16
+        Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (EJECUTADO)"
+        Width: =532
+        X: =50
+        Y: =10
+        ZIndex: =22
+
+    Label1_53 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="PORCENTAJE DE AVANCE:"
+        Width: =338
+        X: =28
+        Y: =565
+        ZIndex: =29
+
+    TextInput2_2 As text:
+        Default: =""
+        Font: =Font.Lato
+        Format: =TextFormat.Number
+        Height: =60
+        Size: =16
+        Width: =577
+        X: =28
+        Y: =608
+        ZIndex: =30
+
+    Label1_54 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="CUMPLIMIENTO:"
+        Width: =338
+        X: =28
+        Y: =668
+        ZIndex: =31
+
+    Dropdown1 As dropdown:
+        Font: =Font.Lato
+        Height: =60
+        Items: =["-- Seleccionar --", "Si", "No"]
+        Size: =16
+        Width: =577
+        X: =28
+        Y: =711
+        ZIndex: =32
+
+    Label1_63 As label:
+        Color: =RGBA(3, 94, 143, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        OnSelect: =
+        Size: =16
+        Text: |-
+            ="OBSERVACIONES:"
+        Width: =338
+        X: =28
+        Y: =771
+        ZIndex: =33
+
+    TextInput2_3 As text:
+        Default: =""
+        Font: =Font.Lato
+        Height: =127
+        Mode: =TextMode.MultiLine
+        Size: =16
+        Width: =577
+        X: =28
+        Y: =811
+        ZIndex: =34
+
