@@ -10,8 +10,9 @@
         '#CopilotOverlayLabel': ="Filtrada"
         Height: =628
         Items: |-
-            =SortByColumns(
-            If(IsBlank(DatePicker1_1.SelectedDate), Filter([@BD_Emergencias_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario), Filter([@BD_Emergencias_Mtto_Massy], Fecha = DatePicker1_1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario)),"Fecha",SortOrder.Descending)
+            =/*SortByColumns(
+            If(IsBlank(DatePicker1_1.SelectedDate); Filter([@BD_Emergencias_Mtto_Massy]; Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario); Filter([@BD_Emergencias_Mtto_Massy]; Fecha = DatePicker1_1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario));"Fecha";SortOrder.Descending)*/
+            If(IsBlank(DatePicker1.SelectedDate),SortByColumns(Filter([@BD_Emergencias_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending), SortByColumns(Filter([@BD_Emergencias_Mtto_Massy], Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending))
         Layout: =Layout.Vertical
         OnSelect: =Navigate('Detalle de actividad de emergencia ejecutada', ScreenTransition.Cover)
         TemplatePadding: =0
@@ -59,7 +60,7 @@
             PaddingRight: =0
             PaddingTop: =0
             Size: =18
-            Text: =ThisItem.'Nombre de la actividad'
+            Text: =ThisItem.Equipo
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
