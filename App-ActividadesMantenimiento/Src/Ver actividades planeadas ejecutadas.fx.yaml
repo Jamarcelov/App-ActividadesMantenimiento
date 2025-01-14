@@ -10,8 +10,9 @@
         '#CopilotOverlayLabel': ="Filtrada"
         Height: =613
         Items: |-
-            =SortByColumns(
-            If(IsBlank(DatePicker1.SelectedDate), Filter([@BD_Ejecucion_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario), Filter([@BD_Ejecucion_Mtto_Massy], Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario)),"Fecha",SortOrder.Descending)
+            =If(IsBlank(DatePicker1.SelectedDate),SortByColumns(Filter([@BD_Ejecucion_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending), SortByColumns(Filter([@BD_Ejecucion_Mtto_Massy], Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending))
+            /*SortByColumns(
+            If(IsBlank(DatePicker1.SelectedDate); Filter([@BD_Ejecucion_Mtto_Massy]; Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario); Filter([@BD_Ejecucion_Mtto_Massy]; Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario));"Fecha";SortOrder.Descending)*/
         Layout: =Layout.Vertical
         OnSelect: =Navigate('Detalle de actividad planeada ejecutada', ScreenTransition.Cover)
         TemplatePadding: =0
