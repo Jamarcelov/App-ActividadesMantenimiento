@@ -60,7 +60,7 @@
             PaddingRight: =0
             PaddingTop: =0
             Size: =18
-            Text: =ThisItem.Equipo
+            Text: =ThisItem.'Nombre de la actividad'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32

@@ -5,6 +5,18 @@
       "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1725/1.0.1725.4004/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "38a13869-64a8-44a8-b225-3c7b317837f1": {
+          "value": "shared_encodiandocumentmanager"
+        },
+        "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3": {
+          "value": "shared_sharepointonline"
+        },
+        "8e3a3a3b-4737-4cbb-b700-be4f5984b39e": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "b39d745e-4a4e-4a37-b2b7-42e25b9ef587": {
+          "value": "shared_office365"
+        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -14,6 +26,18 @@
         }
       },
       "parameterHintsV2": {
+        "shared_encodiandocumentmanager": {
+          "value": "38a13869-64a8-44a8-b225-3c7b317837f1"
+        },
+        "shared_office365": {
+          "value": "b39d745e-4a4e-4a37-b2b7-42e25b9ef587"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "8e3a3a3b-4737-4cbb-b700-be4f5984b39e"
+        },
+        "shared_sharepointonline": {
+          "value": "4f6a2582-0a61-49cf-b4ee-2c01b1cb8fc3"
+        },
         "workflowDisplayName": {
           "value": "GenerarPdfImagenesEmergencias"
         },
@@ -42,7 +66,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24123.12",
-        "modifiedOn": "2025-01-17 13:19:53",
+        "modifiedOn": "2025-01-17 13:20:14",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -64,7 +88,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24123.12",
-        "modifiedOn": "2025-01-17 13:19:53",
+        "modifiedOn": "2025-01-17 13:20:14",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
