@@ -203,7 +203,7 @@
         Height: =36
         Italic: =true
         Size: =14
-        Text: ="Semana " & ISOWeekNum(dtFechaPlaneada_2.SelectedDate) & " - " & Year(Today())
+        Text: ="Semana 0" & ISOWeekNum(dtFechaPlaneada_2.SelectedDate) & " - " & Year(Today())
         Width: =165
         X: =124
         Y: =352
