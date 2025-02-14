@@ -1,0 +1,393 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Cámara:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |-
+        =UpdateContext({vistaCam: 0})
+    Children:
+      - Rectangle1_29:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =1067
+      - Icon7_4:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =65
+            Icon: =Icon.BackArrow
+            OnSelect: =Back(); ResetForm(Form1); Clear(Fotos)
+            Width: =65
+            X: =454
+            Y: =970
+      - Rectangle1_28:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =129
+            Width: =640
+      - Label1_34:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: ="SEGUIMIENTO DE ACTIVIDADES DE MANTENIMIENTO (CMSA - MASSY)"
+            X: =36
+            Y: =29
+      - Label3_12:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =64
+            Italic: =true
+            Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+            X: =40
+            Y: =1072
+      - Label1_77:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =32
+            OnSelect: =
+            Size: =16
+            Text: ="Atrás"
+            Width: =137
+            X: =418
+            Y: =1035
+      - Label1_78:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =32
+            OnSelect: =
+            Size: =16
+            Text: ="Guardar"
+            Width: =137
+            X: =84
+            Y: =1035
+      - Icon11:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =65
+            Icon: =Icon.Save
+            OnSelect: =If(IsBlank(DataCardValue67.SelectedDate) Or IsEmpty(Gallery2.AllItems), Notify("¡Verifique que el campo Fecha se haya llenado y que por lo menos se haya tomado una foto!", NotificationType.Warning, 2100), SubmitForm(Form1))
+            Width: =65
+            X: =120
+            Y: =970
+      - Form1:
+          Control: Form@2.4.2
+          Variant: Classic
+          Layout: Vertical
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DataSource: =Prueba_Galeria_Fotos
+            Height: =353
+            OnSuccess: =Navigate('Historial de fotos', ScreenTransition.Cover); Notify("¡Las imágenes se han guardado con éxito!", NotificationType.Success, 2000); Clear(Fotos)
+            Y: =129
+          Children:
+            - Usuario_DataCard1:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualEdit
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="Usuario"
+                  Default: =ThisItem.Usuario
+                  DisplayName: =DataSourceInfo([@Prueba_Galeria_Fotos],DataSourceInfo.DisplayName,Usuario)
+                  MaxLength: =DataSourceInfo([@Prueba_Galeria_Fotos], DataSourceInfo.MaxLength, Usuario)
+                  Required: =false
+                  Update: =DataCardValue72.Text
+                  Visible: =false
+                  Y: =1
+                Children:
+                  - DataCardKey72:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        Height: =48
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue72:
+                      Control: Classic/TextInput@2.3.2
+                      Properties:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =galLoginUsuario.Selected.NombreUsuario
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Open Sans'
+                        HoverBorderColor: =RGBA(0, 18, 107, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey72.Y + DataCardKey72.Height + 5
+                  - ErrorMessage46:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(168, 0, 0, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue72.Y + DataCardValue72.Height
+                  - StarVisible46:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        Height: =DataCardKey72.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey72.Y
+            - Datos adjuntos_DataCard6:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicAttachmentsEdit
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="{Attachments}"
+                  Default: =Fotos.DisplayName
+                  DisplayName: =DataSourceInfo([@Prueba_Galeria_Fotos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                  Required: =false
+                  Update: =Fotos
+                  Visible: =false
+                  Y: =2
+                Children:
+                  - DataCardKey74:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        Height: =48
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue73:
+                      Control: Attachments@2.3.0
+                      Properties:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Open Sans'
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =Parent.Default
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey74.Y + DataCardKey74.Height + 5
+                  - ErrorMessage48:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(168, 0, 0, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue73.Y + DataCardValue73.Height
+                  - StarVisible48:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        Height: =DataCardKey74.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey74.Y
+      - Camera1:
+          Control: Camera@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Camera: =vistaCam
+            Height: =496
+            OnSelect: |-
+              =Set(varNombre, GUID());
+              Collect(Fotos, {DisplayName: varNombre & ".jpg", Id: varNombre & ".jpg", Value: Camera1.Photo})
+            Width: =640
+            Y: =228
+      - Label8:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(184, 0, 0, 1)
+            Font: =Font.Lato
+            Height: =31
+            Italic: =true
+            Size: =12
+            Text: ="¡Para tomar la foto, toque la pantalla donde se ve la imagen que va a capturar!"
+            Width: =531
+            X: =54
+            Y: =724
+      - Gallery2:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =215
+            Items: =Fotos
+            ShowNavigation: =true
+            TemplateSize: =180
+            Y: =755
+          Children:
+            - Icon9:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Height: =30
+                  Icon: =Icon.Trash
+                  OnSelect: =RemoveIf(Fotos, DisplayName = ThisItem.DisplayName)
+                  Width: =30
+                  X: =76
+                  Y: =156
+            - Image9:
+                Control: Image@2.2.3
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Height: =137
+                  Image: =ThisItem.Value
+                  OnSelect: =Select(Parent)
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                  Width: =141
+                  X: =20
+                  Y: =5
+      - Image1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =28
+            Image: =advertencia
+            Width: =28
+            X: =26
+            Y: =725
+      - Image1_1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =28
+            Image: =advertencia
+            Width: =28
+            X: =585
+            Y: =724
+      - Icon7_15:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =65
+            Icon: =Icon.Sync
+            OnSelect: |-
+              =Switch(
+                  vistaCam,
+                  0,
+                  UpdateContext({vistaCam: 1}),
+                  1,
+                  UpdateContext({vistaCam: 0})
+              )
+            Width: =65
+            X: =287
+            Y: =970
+      - Label1_134:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =32
+            OnSelect: =
+            Size: =16
+            Text: ="Rotar Cam"
+            Width: =137
+            X: =251
+            Y: =1035

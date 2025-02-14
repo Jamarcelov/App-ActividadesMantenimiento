@@ -1,0 +1,720 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Detalle de actividades programadas Civil:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_31:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =129
+            Width: =640
+      - Rectangle1_33:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =1018
+      - Label3_13:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+            X: =40
+            Y: =1051
+      - Label1_71:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Atrás"
+            Width: =125
+            X: =481
+            Y: =975
+      - Icon3_6:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.BackArrow
+            OnSelect: =Back()
+            Width: =76
+            X: =505
+            Y: =899
+      - FormViewer1:
+          Control: FormViewer@2.3.4
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DataSource: =BD_Seg_Prog_Civil_Massy
+            Height: =702
+            Item: =galListaSeguimientosCiviles_1.Selected
+            Y: =141
+          Children:
+            - RendimientoProg_DataCard1:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="RendimientoProg"
+                  Default: =ThisItem.RendimientoProg
+                  DisplayName: =DataSourceInfo([@BD_Seg_Prog_Civil_Massy],DataSourceInfo.DisplayName,RendimientoProg)
+                  Required: =false
+                  Y: =3
+                Children:
+                  - DataCardKey79:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="RENDIMIENTO PROGRAMADO:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue75:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =22
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =49
+                        X: =30
+                        Y: =DataCardKey79.Y + DataCardKey79.Height + 5
+                  - DataCardValue75_1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =22
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="%"
+                        Width: =35
+                        X: =79
+                        Y: =48
+            - NoTrabajadores_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="NoTrabajadores"
+                  Default: =ThisItem.NoTrabajadores
+                  DisplayName: =DataSourceInfo([@BD_Seg_Prog_Civil_Massy],DataSourceInfo.DisplayName,NoTrabajadores)
+                  Required: =false
+                  Y: =4
+                Children:
+                  - DataCardKey80:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="NÚMERO DE TRABAJADORES:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue79:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey80.Y + DataCardKey80.Height + 5
+            - DuracionTrabajo_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="DuracionTrabajo"
+                  Default: =ThisItem.DuracionTrabajo
+                  DisplayName: =DataSourceInfo([@BD_Seg_Prog_Civil_Massy],DataSourceInfo.DisplayName,DuracionTrabajo)
+                  Required: =false
+                  Y: =5
+                Children:
+                  - DataCardKey81:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="DURACIÓN DEL TRABAJO:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue80:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey81.Y + DataCardKey81.Height + 5
+            - HorasHombre_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="HorasHombre"
+                  Default: =ThisItem.HorasHombre
+                  DisplayName: =DataSourceInfo([@BD_Seg_Prog_Civil_Massy],DataSourceInfo.DisplayName,HorasHombre)
+                  Required: =false
+                  Y: =6
+                Children:
+                  - DataCardKey82:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="HORAS HOMBRE:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue81:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey82.Y + DataCardKey82.Height + 5
+            - FechaActividad_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="FechaActividad"
+                  Default: =ThisItem.FechaActividad
+                  DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,FechaActividad)
+                  Required: =false
+                  Y: =0
+                Children:
+                  - DataCardKey77:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="FECHA:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue77:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey77.Y + DataCardKey77.Height + 5
+            - PuestoTrabajo_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="PuestoTrabajo"
+                  Default: =ThisItem.PuestoTrabajo
+                  DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,PuestoTrabajo)
+                  Required: =false
+                  Y: =1
+                Children:
+                  - DataCardKey78:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="PUESTO DE TRABAJO:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue78:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey78.Y + DataCardKey78.Height + 5
+            - OrdenActividad_DataCard2:
+                Control: TypedDataCard@1.0.6
+                Variant: ClassicTextualView
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataField: ="OrdenActividad"
+                  Default: =ThisItem.OrdenActividad
+                  DisplayName: =DataSourceInfo([@BD_Seg_Ejec_Civil_Massy],DataSourceInfo.DisplayName,OrdenActividad)
+                  Required: =false
+                  Y: =2
+                Children:
+                  - DataCardKey76:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(3, 94, 143, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =48
+                        Size: =14
+                        Text: ="ORDEN - ACTIVIDAD:"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                  - DataCardValue76:
+                      Control: Label@2.5.1
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Lato
+                        Height: =40
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey76.Y + DataCardKey76.Height + 5
+      - Icon2_2:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Trash
+            OnSelect: =Set(mensajeEliminarSeguimientosCivilesProgramados, true)
+            Width: =76
+            X: =44
+            Y: =898
+      - Icon3_7:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            DisplayMode: =If(DataSourceInfo([@BD_Ejecucion_Mtto_Massy], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+            Height: =76
+            Icon: =Icon.Edit
+            OnSelect: =Set(avisoModificarTareaDetalle, true)
+            Width: =76
+            X: =282
+            Y: =898
+      - Label1_55:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Eliminar"
+            Width: =125
+            X: =19
+            Y: =974
+      - Label1_56:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Editar"
+            Width: =125
+            X: =257
+            Y: =974
+      - fondoAviso_13:
+          Control: Rectangle@2.3.0
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =640
+      - Rectangle4_13:
+          Control: Rectangle@2.3.0
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =340
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =527
+            X: =52
+            Y: =404
+      - Rectangle5_13:
+          Control: Rectangle@2.3.0
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            OnSelect: =
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =527
+            X: =52
+            Y: =391
+      - Label4_13:
+          Control: Label@2.5.1
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =63
+            OnSelect: =
+            Text: ="¡ELIMINAR REGISTRO!"
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =484
+            X: =73
+            Y: =411
+      - Label7_17:
+          Control: Label@2.5.1
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =125
+            Italic: =true
+            OnSelect: =
+            Text: ="¿Quiere eliminar este registro?"
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =527
+            X: =52
+            Y: =488
+      - Button3_18:
+          Control: Classic/Button@2.2.0
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Font: =Font.'Open Sans'
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Remove(BD_Seg_Prog_Civil_Massy, galListaSeguimientosCiviles_1.Selected); Set(mensajeEliminarSeguimientosCivilesProgramados, false); Back(); Notify("¡Registro eliminado correctamente!", NotificationType.Success, 2000)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =20
+            Text: ="SI"
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =165
+            X: =98
+            Y: =635
+      - Button3_17:
+          Control: Classic/Button@2.2.0
+          Group: grupMensajeEliminarSeguimientosCiviles
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Open Sans'
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(mensajeEliminarSeguimientosCivilesProgramados, false)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =20
+            Text: ="NO"
+            Visible: =mensajeEliminarSeguimientosCivilesProgramados
+            Width: =165
+            X: =366
+            Y: =635
+      - fondoAviso_19:
+          Control: Rectangle@2.3.0
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(56, 96, 178, 0.2)
+            Height: =1136
+            Visible: =avisoModificarTareaDetalle
+            Width: =640
+      - Rectangle4_19:
+          Control: Rectangle@2.3.0
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =423
+            Visible: =avisoModificarTareaDetalle
+            Width: =561
+            X: =40
+            Y: =404
+      - Rectangle5_19:
+          Control: Rectangle@2.3.0
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =98
+            Visible: =avisoModificarTareaDetalle
+            Width: =560
+            X: =40
+            Y: =404
+      - Label4_19:
+          Control: Label@2.5.1
+          Group: Group2_3
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =81
+            Text: ="MODIFICAR DATOS DE LA ACTIVIDAD"
+            Visible: =avisoModificarTareaDetalle
+            Width: =471
+            X: =80
+            Y: =412
+      - Button3_30:
+          Control: Classic/Button@2.2.0
+          Group: Group2_3
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(221, 79, 14, 1)
+            Font: =Font.'Open Sans'
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Set(avisoModificarTareaDetalle, false)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="CANCELAR"
+            Visible: =avisoModificarTareaDetalle
+            Width: =142
+            X: =360
+            Y: =725
+      - TextInput1_8:
+          Control: Classic/TextInput@2.3.2
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =galListaSeguimientosCiviles_1.Selected.OrdenActividad
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Lato
+            Height: =60
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Visible: =avisoModificarTareaDetalle
+            Width: =519
+            X: =60
+            Y: =542
+      - Button3_29:
+          Control: Classic/Button@2.2.0
+          Group: Group2_3
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Open Sans'
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+              =Patch(
+                  BD_Seg_Prog_Civil_Massy, LookUp(BD_Seg_Prog_Civil_Massy, ID = galListaSeguimientosCiviles_1.Selected.ID),
+                  {
+                      FechaActividad: DateValue(DataCardValue77.Text),
+                      PuestoTrabajo: DataCardValue78.Text,
+                      OrdenActividad: DataCardValue76.Text,
+                      RendimientoProg: Value(TextInput1_7.Text),
+                      NoTrabajadores: Value(DataCardValue79.Text),
+                      DuracionTrabajo: Value(DataCardValue80.Text),
+                      HorasHombre: Value(DataCardValue81.Text)
+                  }
+              ); Set(avisoModificarTareaDetalle, false); Reset(TextInput1_8); Reset(TextInput1_7); Navigate('Ver rendimientos programados Civil', ScreenTransition.CoverRight); Notify("¡Registro modificado con éxito!", NotificationType.Success, 2000)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="MODIFICAR"
+            Visible: =avisoModificarTareaDetalle
+            Width: =142
+            X: =121
+            Y: =725
+      - Label8_11:
+          Control: Label@2.5.1
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: ="ACTIVIDAD - ORDEN:"
+            Visible: =avisoModificarTareaDetalle
+            Width: =200
+            X: =60
+            Y: =516
+      - TextInput1_7:
+          Control: Classic/TextInput@2.3.2
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =galListaSeguimientosCiviles_1.Selected.RendimientoProg
+            Font: =Font.Lato
+            Height: =60
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Visible: =avisoModificarTareaDetalle
+            Width: =246
+            X: =60
+            Y: =637
+      - Label8_10:
+          Control: Label@2.5.1
+          Group: Group2_3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            Height: =26
+            Size: =12
+            Text: ="PORCENTAJE DE AVANCE:"
+            Visible: =avisoModificarTareaDetalle
+            Width: =287
+            X: =60
+            Y: =611
+      - Label1_101:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (PROGRAMADO)"
+            Width: =532
+            X: =54
+            Y: =29

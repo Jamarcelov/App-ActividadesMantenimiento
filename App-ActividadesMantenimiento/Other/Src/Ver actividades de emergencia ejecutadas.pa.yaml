@@ -1,0 +1,285 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Ver actividades de emergencia ejecutadas:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_8:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =135
+            Width: =640
+      - galListaEmergencia:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_ThreeTextVariant_ver4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =628
+            Items: |-
+              =/*SortByColumns(
+              If(IsBlank(DatePicker1_1.SelectedDate); Filter([@BD_Emergencias_Mtto_Massy]; Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario); Filter([@BD_Emergencias_Mtto_Massy]; Fecha = DatePicker1_1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario));"Fecha";SortOrder.Descending)*/
+              If(IsBlank(DatePicker1.SelectedDate),SortByColumns(Filter([@BD_Emergencias_Mtto_Massy], Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending), SortByColumns(Filter([@BD_Emergencias_Mtto_Massy], Fecha = DatePicker1.SelectedDate And Nombre_Ejecutante = galLoginUsuario.Selected.NombreUsuario),"Fecha",SortOrder.Descending))
+            OnSelect: =Navigate('Detalle de actividad de emergencia ejecutada', ScreenTransition.Cover)
+            TemplateSize: =Min(168, Self.Height - 60)
+            Y: =208
+          Children:
+            - Title7:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Font: =Font.'Lato Black'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =20
+                  Text: =ThisItem.'Puesto de trabajo'.Value
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =16
+            - Subtitle6:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.Lato
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =18
+                  Text: =ThisItem.Fecha
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =Title7.Y + Title7.Height + 2
+            - Body3:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.Lato
+                  Height: =Self.Size * 4
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =18
+                  Text: =ThisItem.'Nombre de la actividad'
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =Subtitle6.Y + Subtitle6.Height + 4
+            - NextArrow7:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  AccessibleLabel: =Self.Tooltip
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Height: =60
+                  Icon: =Icon.ChevronRight
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =10
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =10
+                  TabIndex: =0
+                  Tooltip: ="Ver los detalles del elemento"
+                  Width: =60
+                  X: =Parent.TemplateWidth - Self.Width - 5
+                  Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            - Separator6:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(0, 18, 107, 1)
+                  Height: =1
+                  OnSelect: =Select(Parent)
+                  Width: =Parent.TemplateWidth
+                  Y: =Parent.TemplateHeight - 1
+      - Rectangle1_9:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =997
+      - lbTitulo:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =56
+            Size: =18
+            Text: |-
+              ="LISTADO DE ACTIVIDADES 
+              EMERGENCIA / EJECUTADAS
+              "
+            Width: =510
+            X: =61
+            Y: =40
+      - iconBuscar:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =67
+            Icon: =Icon.Search
+            PaddingBottom: =14
+            PaddingLeft: =14
+            PaddingRight: =14
+            PaddingTop: =14
+            Width: =68
+            Y: =136
+      - iconAgregar:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Add
+            OnSelect: =NewForm(EditForm2); Navigate('Registro de actividad de emergencia ejecutada', ScreenTransition.Cover)
+            Width: =76
+            X: =35
+            Y: =860
+      - Icon4:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Reload
+            OnSelect: =Refresh([@BD_Emergencias_Mtto_Massy])
+            Width: =76
+            X: =183
+            Y: =860
+      - Icon5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Sync
+            OnSelect: =Reset(DatePicker1_1)
+            Width: =76
+            X: =355
+            Y: =860
+      - Icon6:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Index, ScreenTransition.CoverRight); Reset(DatePicker1_1)
+            Width: =76
+            X: =510
+            Y: =860
+      - Label1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Agregar"
+            Width: =125
+            X: =10
+            Y: =936
+      - Label1_1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Refrescar"
+            Width: =125
+            X: =158
+            Y: =936
+      - Label1_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Ver todo"
+            Width: =125
+            X: =330
+            Y: =936
+      - Label1_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Ir a inicio"
+            Width: =125
+            X: =486
+            Y: =936
+      - Label3_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: ="2023 - Servicios a la operación (CMSA)"
+            X: =40
+            Y: =1030
+      - DatePicker1_1:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            DefaultDate: =
+            Font: =Font.Lato
+            Height: =68
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            InputTextPlaceholder: ="Buscar por fecha"
+            Italic: =true
+            Size: =21
+            Width: =572
+            X: =68
+            Y: =135

@@ -1,0 +1,192 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Puesto y orden de actividad planeada ejecutada:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_18:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =129
+            Width: =640
+      - Rectangle1_19:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =997
+      - Label1_25:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: |-
+              ="SELECCIÓN DE ACTIVIDADES
+              POR PUESTO DE TRABAJO"
+            X: =36
+            Y: =29
+      - btnGuardar_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =Color.White
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Open Sans'
+            Height: =78
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: = If(lsPuestoPlaneado.SelectedText.Value = "-- Seleccionar --" Or IsBlank(lsOrdenDescripcionPlaneado.SelectedText.Value), Notify("Debe seleccionar un puesto de trabajo y una orden",NotificationType.Warning, 2000), NewForm(EditForm1); Navigate('Registro de actividad planeada ejecutada', ScreenTransition.Cover))
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="CONTINUAR"
+            Width: =213
+            X: =213
+            Y: =816
+      - dtFechaPlaneada:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.Lato
+            Format: '=Text(dtFechaPlaneada.SelectedDate, "dd/mm/yyyy") '
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =21
+            X: =38
+            Y: =226
+      - lsPuestoPlaneado:
+          Control: Classic/DropDown@2.3.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =["-- Seleccionar --", "Aire acondicionado", "Civil", "Mecánica", "Electromecánica Grúas/Ascensor", "Electromecánica RCI","Compresores", "Eléctricos", "Generadores", "Equipos de soldar", "Equipos de Taller Central y Casing"]
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            X: =38
+            Y: =386
+      - lsOrdenDescripcionPlaneado:
+          Control: Classic/DropDown@2.3.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =Filter(BD_Planeacion_Mtto_Massy, Fecha = Text(dtFechaPlaneada.SelectedDate, "dd/mm/yyyy") And Puesto_Trabajo = lsPuestoPlaneado.SelectedText.Value)
+            Items.Value: =Orden_x002d_Descripcion
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            X: =38
+            Y: =553
+      - Icon1_1:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.BackArrow
+            OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover); Reset(dtFechaPlaneada); Reset(lsPuestoPlaneado); Reset(lsOrdenDescripcionPlaneado)
+            Width: =76
+            X: =520
+            Y: =797
+      - Label1_10:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Text: ="Atrás"
+            Width: =125
+            X: =495
+            Y: =873
+      - Label1_26:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =
+            Size: =19
+            Text: ="FECHA:"
+            Width: =338
+            X: =38
+            Y: =164
+      - Label1_27:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =
+            Size: =19
+            Text: ="PUESTO DE TRABAJO:"
+            Width: =338
+            X: =38
+            Y: =324
+      - Label1_28:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =
+            Size: =19
+            Text: ="ORDEN - ACTIVIDAD:"
+            Width: =338
+            X: =38
+            Y: =491
+      - Label3_5:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: ="2023 - Servicios a la operación (CMSA)"
+            X: =36
+            Y: =1030

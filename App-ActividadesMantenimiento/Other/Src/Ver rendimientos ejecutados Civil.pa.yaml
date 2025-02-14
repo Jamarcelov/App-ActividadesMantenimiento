@@ -1,0 +1,278 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Ver rendimientos ejecutados Civil:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_49:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =135
+            Width: =640
+      - galListaSeguimientosCiviles_3:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_ThreeTextVariant_ver4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =615
+            Items: =If(IsBlank(DatePicker1_5.SelectedDate), BD_Seg_Ejec_Civil_Massy, Filter(BD_Seg_Ejec_Civil_Massy, FechaActividad = DatePicker1_5.SelectedDate))
+            OnSelect: =Navigate('Detalle de actividades ejecutadas Civil', ScreenTransition.Cover)
+            TemplateSize: =192
+            Y: =214
+          Children:
+            - Title7_5:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =66
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =20
+                  Text: =ThisItem.OrdenActividad
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =16
+            - Subtitle6_5:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.Lato
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =18
+                  Text: =ThisItem.FechaActividad
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =98
+            - Body3_5:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.Lato
+                  FontWeight: =FontWeight.Lighter
+                  Height: =27
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =16
+                  Text: =ThisItem.RendimientoEjec & " %"
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =52
+                  X: =32
+                  Y: =144
+            - NextArrow7_5:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  AccessibleLabel: =Self.Tooltip
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Height: =60
+                  Icon: =Icon.ChevronRight
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =10
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =10
+                  TabIndex: =0
+                  Tooltip: ="Ver los detalles del elemento"
+                  Width: =60
+                  X: =Parent.TemplateWidth - Self.Width - 5
+                  Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            - Separator6_5:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(0, 18, 107, 1)
+                  Height: =1
+                  OnSelect: =Select(Parent)
+                  Width: =Parent.TemplateWidth
+                  Y: =Parent.TemplateHeight - 1
+      - Rectangle1_50:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =997
+      - iconBuscar_5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =67
+            Icon: =Icon.Search
+            PaddingBottom: =14
+            PaddingLeft: =14
+            PaddingRight: =14
+            PaddingTop: =14
+            Width: =68
+            Y: =136
+      - iconAgregar_5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Add
+            OnSelect: =Navigate('Rendimiento de actividades ejecutadas Civil', ScreenTransition.Cover)
+            Width: =76
+            X: =35
+            Y: =860
+      - Icon4_5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Reload
+            OnSelect: =Refresh(BD_Seg_Ejec_Civil_Massy)
+            Width: =76
+            X: =187
+            Y: =860
+      - Icon5_5:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =76
+            Icon: =Icon.Sync
+            OnSelect: =Reset(DatePicker1_5)
+            Width: =76
+            X: =355
+            Y: =860
+      - Label1_94:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Agregar"
+            Width: =125
+            X: =10
+            Y: =936
+      - Label1_110:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Refrescar"
+            Width: =141
+            X: =154
+            Y: =936
+      - Label1_111:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Ver todo"
+            Width: =125
+            X: =330
+            Y: =936
+      - Label3_21:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+            X: =40
+            Y: =1030
+      - DatePicker1_5:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            DefaultDate: =
+            Font: =Font.Lato
+            Height: =67
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            InputTextPlaceholder: ="Buscar por fecha"
+            Italic: =true
+            Size: =21
+            X: =65
+            Y: =136
+      - Icon7_8:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =70
+            Icon: =Icon.BackArrow
+            OnSelect: =Navigate('Menú registro de rendimientos Civil', ScreenTransition.CoverRight); Reset(DatePicker1_5)
+            Width: =70
+            X: =512
+            Y: =866
+      - Label1_112:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =16
+            Text: ="Atrás"
+            Width: =151
+            X: =472
+            Y: =936
+      - Label1_100:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (EJECUTADO)"
+            Width: =532
+            X: =54
+            Y: =29

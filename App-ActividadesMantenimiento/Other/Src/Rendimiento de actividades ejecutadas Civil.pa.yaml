@@ -1,0 +1,348 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Rendimiento de actividades ejecutadas Civil:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_51:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =92
+            Width: =640
+      - Rectangle1_52:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =1062
+      - Label3_22:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+            X: =40
+            Y: =1066
+      - btnGuardar_10:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =Color.White
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |-
+              =If(IsBlank(TextInput2_2.Text) Or Dropdown1.SelectedText.Value = "-- Seleccionar --", Notify("¡Existen campos sin llenar, por favor completar la información!", NotificationType.Warning, 2000), 
+              Patch(
+                  BD_Seg_Ejec_Civil_Massy,
+                  Defaults(BD_Seg_Ejec_Civil_Massy),
+                  {
+                      FechaActividad: dtFechaPlaneada_3.SelectedDate,
+                      PuestoTrabajo: Label4_2.Text,
+                      OrdenActividad: Concatenate(
+                          Label6_2.Text,
+                          " - ",
+                          lsOrden_2.SelectedText.Value
+                      ),
+                      RendimientoEjec: Value(TextInput2_2.Text),
+                      Cumplimiento: Dropdown1.SelectedText,
+                      Observaciones: TextInput2_3.Text
+                  }
+              ); Reset(dtFechaPlaneada_3); Reset(TextInput2_2); Reset(Dropdown1); Reset(TextInput2_3) ; Navigate('Ver rendimientos ejecutados Civil', ScreenTransition.Cover);Notify("¡Registro guardado con éxito!", NotificationType.Success, 2000))
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =22
+            Text: ="GUARDAR"
+            Width: =213
+            X: =209
+            Y: =970
+      - dtFechaPlaneada_3:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.Lato
+            Format: '=Text(dtFechaPlaneada_3.SelectedDate, "dd/mm/yyyy") '
+            Height: =60
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =16
+            X: =28
+            Y: =240
+      - Label1_62:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="FECHA:"
+            Width: =338
+            X: =28
+            Y: =197
+      - Label1_68:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="ACTIVIDAD:"
+            Width: =338
+            X: =28
+            Y: =462
+      - Label1_61:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="PUESTO DE TRABAJO:"
+            Width: =338
+            X: =28
+            Y: =94
+      - Label4_2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =2
+            Font: =Font.Lato
+            Height: =60
+            Size: =16
+            Text: ="Civil"
+            Width: =577
+            X: =28
+            Y: =137
+      - Label1_64:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="ORDEN:"
+            Width: =338
+            X: =28
+            Y: =358
+      - lsOrden_2:
+          Control: Classic/DropDown@2.3.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =60
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =Distinct(Filter(BD_Planeacion_Mtto_Massy, Semana = lblSemana_1.Text And Puesto_Trabajo = "Civil" /*And Fecha = Text(dtFechaPlaneada_3.SelectedDate; "dd/mm/yyyy")*/), Orden)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =16
+            X: =28
+            Y: =401
+      - Label6_2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =2
+            Font: =Font.Lato
+            Height: =60
+            Size: =16
+            Text: =LookUp(BD_Planeacion_Mtto_Massy, Orden = lsOrden_2.SelectedText.Value, Descripcion)
+            Width: =576
+            X: =28
+            Y: =505
+      - Label1_69:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            OnSelect: =
+            Size: =18
+            Text: ="Atrás"
+            Width: =125
+            X: =475
+            Y: =1018
+      - Icon3_12:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =70
+            Icon: =Icon.BackArrow
+            OnSelect: =Navigate('Ver rendimientos estimados Civil', ScreenTransition.CoverRight)
+            Width: =70
+            X: =499
+            Y: =962
+      - Label1_114:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(242, 141, 0, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =
+            Size: =14
+            Text: ="SEMANA:"
+            Width: =338
+            X: =28
+            Y: =309
+      - lblSemana_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.Lato
+            Height: =32
+            Italic: =true
+            Size: =14
+            Text: ="Semana 0" & ISOWeekNum(dtFechaPlaneada_3.SelectedDate) & " - " & Year(Today())
+            Width: =176
+            X: =124
+            Y: =320
+      - Label1_113:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =16
+            Text: ="SEGUIMIENTO DE ACTIVIDADES CIVILES (EJECUTADO)"
+            Width: =532
+            X: =50
+            Y: =10
+      - Label1_53:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="PORCENTAJE DE AVANCE:"
+            Width: =338
+            X: =28
+            Y: =565
+      - TextInput2_2:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.Lato
+            Format: =TextFormat.Number
+            Height: =60
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =16
+            Width: =577
+            X: =28
+            Y: =608
+      - Label1_54:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="CUMPLIMIENTO:"
+            Width: =338
+            X: =28
+            Y: =668
+      - Dropdown1:
+          Control: Classic/DropDown@2.3.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =60
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =["-- Seleccionar --", "Si", "No"]
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =16
+            Width: =577
+            X: =28
+            Y: =711
+      - Label1_63:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            OnSelect: =
+            Size: =16
+            Text: ="OBSERVACIONES:"
+            Width: =338
+            X: =28
+            Y: =771
+      - TextInput2_3:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.Lato
+            Height: =127
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Mode: =TextMode.MultiLine
+            Size: =16
+            Width: =577
+            X: =28
+            Y: =811

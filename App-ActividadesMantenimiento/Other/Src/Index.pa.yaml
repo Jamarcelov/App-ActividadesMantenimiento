@@ -1,0 +1,226 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Index:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1_6:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 230, 3, 1)
+            Height: =129
+            Width: =640
+      - galLoginUsuario:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_OneTextVariant_ver4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =99
+            Items: =LookUp(BD_Login_Massy, Usuario = txtUsuario.Text)
+            TemplateSize: =Min(96, Self.Height - 60)
+            Width: =388
+            X: =159
+            Y: =144
+          Children:
+            - Title3:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(3, 94, 143, 1)
+                  Font: =Font.Lato
+                  Height: =Self.Size * 1.8
+                  Italic: =true
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =20
+                  Text: =ThisItem.NombreUsuario
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 104
+                  X: =32
+                  Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+      - Rectangle1_7:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(242, 141, 0, 1)
+            Height: =5
+            Width: =594
+            X: =19
+            Y: =997
+      - Label1_18:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: ="SEGUIMIENTO DE ACTIVIDADES DE MANTENIMIENTO (CMSA - MASSY)"
+            X: =36
+            Y: =29
+      - Label1_19:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover)
+            Size: =18
+            Text: ="REGISTRO DE ACTIVIDADES PLANEADAS"
+            Width: =338
+            X: =147
+            Y: =449
+      - Label1_20:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =56
+            OnSelect: =Navigate('Ver actividades de emergencia ejecutadas', ScreenTransition.Cover)
+            Size: =18
+            Text: ="REGISTRO DE ACTIVIDADES DE EMERGENCIA"
+            Width: =378
+            X: =127
+            Y: =706
+      - Image4:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =100
+            Image: =logoEmergencias
+            OnSelect: =Navigate('Ver actividades de emergencia ejecutadas', ScreenTransition.Cover)
+            Width: =100
+            X: =266
+            Y: =597
+      - Image5:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =100
+            Image: =logoPlaneado
+            OnSelect: =Navigate('Ver actividades planeadas ejecutadas', ScreenTransition.Cover)
+            Width: =100
+            X: =266
+            Y: =335
+      - Label3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Italic: =true
+            Text: =Year(Today()) & " - Servicios a la operación - CMSA"
+            X: =40
+            Y: =1030
+      - Label2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =46
+            Italic: =true
+            Size: =20
+            Text: ="Bienvenido(a),"
+            Width: =170
+            X: =19
+            Y: =139
+      - Icon7_3:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =65
+            Icon: =Icon.Leave
+            OnSelect: =Navigate(Login, ScreenTransition.Cover); Reset(txtUsuario); Reset(txtClave)
+            Width: =65
+            X: =517
+            Y: =895
+      - Label1_16:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =16
+            Text: ="Cerrar sesión"
+            Width: =137
+            X: =481
+            Y: =953
+      - Label1_75:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =16
+            Text: ="Cámara"
+            Width: =137
+            X: =5
+            Y: =953
+      - Icon8:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Height: =65
+            Icon: =Icon.Camera
+            OnSelect: =Clear(Fotos); NewForm(Form1); Navigate(Cámara, ScreenTransition.Cover)
+            Width: =65
+            X: =41
+            Y: =895
+      - Label1_79:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(3, 94, 143, 1)
+            Font: =Font.Lato
+            Height: =44
+            OnSelect: =
+            Size: =16
+            Text: ="Galería"
+            Width: =137
+            X: =251
+            Y: =953
+      - Image12:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =109
+            Image: ='galeriFotos.jpg'
+            OnSelect: =Navigate('Historial de fotos', ScreenTransition.Cover)
+            Width: =70
+            X: =285
+            Y: =873
